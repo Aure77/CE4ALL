@@ -10,7 +10,19 @@
 		
 		<link href="../css/style.css" rel="stylesheet" media="all" type="text/css"> 
 		
-		
+		<script src="../cordova.js"></script>
+		<script src="../cordova_plugins.js"></script>
+		<script>
+		function tryPlugin() {
+			cordova.exec(notifySuccess, notifyFailure, "NotificationPlugin", "buy-ticket", ["<TEST>"]);
+		}
+		function notifySuccess(data){
+		    alert(data);
+		}		
+		function notifyFailure(data) {
+		    alert("FAIL: " + data);
+		}
+		</script>
 </head>
 
 <body>
@@ -26,11 +38,11 @@
 			<nav>
 				<div class="ce-menu-wrapper">
 					<div class="ce-menu-menuItem">
-						<a href="www.google.fr" target="_blank" class="ce-img-menu-actualites"></a>
+						<a href="#" onclick="tryPlugin()" target="_blank" class="ce-img-menu-actualites"></a>
 						<span class="ce-img-menu-notification-actualite"></span>
 					</div>
 					<div class="ce-menu-menuItem">
-						<a href="www.google.fr" target="_blank" class="ce-img-menu-billet"></a>
+						<a href="file:///android_asset/www/html/billeterie.html" target="_blank" class="ce-img-menu-billet"></a>
 						<span class="ce-img-menu-notification-billet"></span>
 					</div>
 					<div class="ce-menu-menuItem">
