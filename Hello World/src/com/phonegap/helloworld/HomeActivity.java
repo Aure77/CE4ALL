@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
+import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.os.Bundle;
@@ -51,13 +52,12 @@ public class HomeActivity extends FragmentActivity {
  
         mTitle = mDrawerTitle = getTitle();
  
-        initializeMenuItems();        
-		if (DeviceDetector.isTablet(this)) {
-//			LinearLayout homeLayout = (LinearLayout) findViewById(R.id.home_layout);
-//			homeLayout.
-		} else {
-			initializeSlideMenuDrawer(); // slide menu only on phones
-		}
+        initializeMenuItems();
+        if(DeviceDetector.isTablet(this)) {
+        	setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE); // force landscape on tablet
+        } else {
+        	initializeSlideMenuDrawer(); // slide menu only on phones
+        }
  
         if (savedInstanceState == null) {
             // on first time display view for first nav item
@@ -106,41 +106,44 @@ public class HomeActivity extends FragmentActivity {
 	private void initializeSlideMenuDrawer() {
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
-        // enabling action bar app icon and behaving it as toggle button
-        getActionBar().setDisplayHomeAsUpEnabled(true);
-        getActionBar().setHomeButtonEnabled(true);
-        getActionBar().setCustomView(R.layout.topbar);
- 
-        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
-                R.drawable.ic_drawer, //nav menu toggle icon
-                R.string.app_name, // nav drawer open - description for accessibility
-                R.string.app_name // nav drawer close - description for accessibility
-        ) {
-            public void onDrawerClosed(View view) {
-                //getActionBar().setTitle(mTitle);
-                // calling onPrepareOptionsMenu() to show action bar icons
-                //invalidateOptionsMenu();
-            }
- 
-            public void onDrawerOpened(View drawerView) {
-                //getActionBar().setTitle(mDrawerTitle);
-                // calling onPrepareOptionsMenu() to hide action bar icons
-                //invalidateOptionsMenu();
-            }
-        };
-        mDrawerLayout.setDrawerListener(mDrawerToggle);
-        
-        ActionBar actionBar = getActionBar();
-        //actionBar.setTitle("hi");
-        //actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.logo));
-        actionBar.setIcon(getResources().getDrawable(
-                R.drawable.menu));
-        actionBar.setCustomView(R.layout.topbar);
-        actionBar.setDisplayShowTitleEnabled(true);
-        actionBar.setDisplayShowCustomEnabled(true);
-        actionBar.setDisplayUseLogoEnabled(true);
-        actionBar.setDisplayShowHomeEnabled(true);
-        actionBar.setDisplayHomeAsUpEnabled(false);
+		if (mDrawerLayout != null) {
+
+			mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
+					R.drawable.ic_drawer, // nav menu toggle icon
+					R.string.app_name, // nav drawer open - description for
+										// accessibility
+					R.string.app_name // nav drawer close - description for
+										// accessibility
+			) {
+				public void onDrawerClosed(View view) {
+					// getActionBar().setTitle(mTitle);
+					// calling onPrepareOptionsMenu() to show action bar icons
+					// invalidateOptionsMenu();
+				}
+
+				public void onDrawerOpened(View drawerView) {
+					// getActionBar().setTitle(mDrawerTitle);
+					// calling onPrepareOptionsMenu() to hide action bar icons
+					// invalidateOptionsMenu();
+				}
+			};
+			mDrawerLayout.setDrawerListener(mDrawerToggle);
+
+			ActionBar actionBar = getActionBar();
+			// enabling action bar app icon and behaving it as toggle button
+			actionBar.setDisplayHomeAsUpEnabled(true);
+			actionBar.setHomeButtonEnabled(true);
+			actionBar.setCustomView(R.layout.topbar);
+			// actionBar.setTitle("hi");
+			// actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.logo));
+			actionBar.setIcon(getResources().getDrawable(R.drawable.menu));
+			actionBar.setCustomView(R.layout.topbar);
+			actionBar.setDisplayShowTitleEnabled(true);
+			actionBar.setDisplayShowCustomEnabled(true);
+			actionBar.setDisplayUseLogoEnabled(true);
+			actionBar.setDisplayShowHomeEnabled(true);
+			actionBar.setDisplayHomeAsUpEnabled(false);
+		}
 	}
  
     /**
