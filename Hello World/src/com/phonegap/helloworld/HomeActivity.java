@@ -201,15 +201,15 @@ public class HomeActivity extends FragmentActivity {
         Fragment fragment = null;
         switch (position) {
         case 0:
-            fragment = new HomeFragment();
+            fragment = new AcceuilFragment();
             break;
         case 1:
 //            fragment = new CordovaFragmentAbstract();
-           fragment = new FirstFragment();
+           fragment = new ProfileFragment();
 
         	break;
         case 2:
-            fragment = new SecondFragment();
+            fragment = new BilletterieFragment();
             break;
         case 3:
 //            fragment = new CommunityFragment();
