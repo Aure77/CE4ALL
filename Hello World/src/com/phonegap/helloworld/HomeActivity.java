@@ -201,7 +201,7 @@ public class HomeActivity extends FragmentActivity {
 
         	break;
         case 2:
-//            fragment = new PhotosFragment();
+            fragment = new SecondFragment();
             break;
         case 3:
 //            fragment = new CommunityFragment();
