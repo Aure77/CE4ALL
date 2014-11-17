@@ -172,8 +172,10 @@ public class HomeActivity extends FragmentActivity {
             fragment = new HomeFragment();
             break;
         case 1:
-            fragment = new CordovaFragment();
-            break;
+//            fragment = new CordovaFragmentAbstract();
+           fragment = new FirstFragment();
+
+        	break;
         case 2:
 //            fragment = new PhotosFragment();
             break;
