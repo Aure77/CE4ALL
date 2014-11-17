@@ -59,10 +59,12 @@ public class HomeActivity extends FragmentActivity {
         	initializeSlideMenuDrawer(); // slide menu only on phones
         }
  
-        if (savedInstanceState == null) {
-            // on first time display view for first nav item
-            displayView(0);
-        }
+		if (savedInstanceState == null) {
+			// on first time display view for first nav item
+			displayView(0);
+			// first listview element is selected
+			mDrawerList.setItemChecked(0, true);
+		}
     }
 
 
