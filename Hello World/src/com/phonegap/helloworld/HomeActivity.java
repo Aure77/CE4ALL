@@ -5,6 +5,7 @@ package com.phonegap.helloworld;
 import java.util.ArrayList;
 
 import android.annotation.SuppressLint;
+import android.app.ActionBar;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.os.Bundle;
@@ -15,7 +16,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -106,28 +106,41 @@ public class HomeActivity extends FragmentActivity {
 	private void initializeSlideMenuDrawer() {
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
-		// enabling action bar app icon and behaving it as toggle button
-		getActionBar().setDisplayHomeAsUpEnabled(true);
-		getActionBar().setHomeButtonEnabled(true);
-
-		mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
-				R.drawable.ic_drawer, // nav menu toggle icon
-				R.string.app_name, // nav drawer open - description for accessibility
-				R.string.app_name // nav drawer close - description for accessibility
-		) {
-			public void onDrawerClosed(View view) {
-				getActionBar().setTitle(mTitle);
-				// calling onPrepareOptionsMenu() to show action bar icons
-				invalidateOptionsMenu();
-			}
-
-			public void onDrawerOpened(View drawerView) {
-				getActionBar().setTitle(mDrawerTitle);
-				// calling onPrepareOptionsMenu() to hide action bar icons
-				invalidateOptionsMenu();
-			}
-		};
-		mDrawerLayout.setDrawerListener(mDrawerToggle);
+        // enabling action bar app icon and behaving it as toggle button
+        getActionBar().setDisplayHomeAsUpEnabled(true);
+        getActionBar().setHomeButtonEnabled(true);
+        getActionBar().setCustomView(R.layout.topbar);
+ 
+        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
+                R.drawable.ic_drawer, //nav menu toggle icon
+                R.string.app_name, // nav drawer open - description for accessibility
+                R.string.app_name // nav drawer close - description for accessibility
+        ) {
+            public void onDrawerClosed(View view) {
+                //getActionBar().setTitle(mTitle);
+                // calling onPrepareOptionsMenu() to show action bar icons
+                //invalidateOptionsMenu();
+            }
+ 
+            public void onDrawerOpened(View drawerView) {
+                //getActionBar().setTitle(mDrawerTitle);
+                // calling onPrepareOptionsMenu() to hide action bar icons
+                //invalidateOptionsMenu();
+            }
+        };
+        mDrawerLayout.setDrawerListener(mDrawerToggle);
+        
+        ActionBar actionBar = getActionBar();
+        //actionBar.setTitle("hi");
+        //actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.logo));
+        actionBar.setIcon(getResources().getDrawable(
+                R.drawable.menu));
+        actionBar.setCustomView(R.layout.topbar);
+        actionBar.setDisplayShowTitleEnabled(true);
+        actionBar.setDisplayShowCustomEnabled(true);
+        actionBar.setDisplayUseLogoEnabled(true);
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(false);
 	}
  
     /**
@@ -148,14 +161,11 @@ public class HomeActivity extends FragmentActivity {
 		}
 	}
  
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		if (DeviceDetector.isTablet(this)) {
-			return false;
-		}
-		getMenuInflater().inflate(R.menu.home, menu);
-		return true;
-	}   
+    /*@Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.home, menu);
+        return true;
+    }*/
  
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -175,15 +185,13 @@ public class HomeActivity extends FragmentActivity {
     /***
      * Called when invalidateOptionsMenu() is triggered
      */
-	@Override
-	public boolean onPrepareOptionsMenu(Menu menu) {
-		if (mDrawerLayout != null) {
-			// if nav drawer is opened, hide the action items
-			boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-			menu.findItem(R.id.action_settings).setVisible(!drawerOpen);
-		}
-		return super.onPrepareOptionsMenu(menu);
-	}
+    /*@Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        // if nav drawer is opened, hide the action items
+        boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
+        menu.findItem(R.id.action_settings).setVisible(!drawerOpen);
+        return super.onPrepareOptionsMenu(menu);
+    }*/
  
     /**
      * Diplaying fragment view for selected nav drawer list item
@@ -232,7 +240,7 @@ public class HomeActivity extends FragmentActivity {
     @Override
     public void setTitle(CharSequence title) {
         mTitle = title;
-        getActionBar().setTitle(mTitle);
+        //getActionBar().setTitle(mTitle);
     }
  
     /**
