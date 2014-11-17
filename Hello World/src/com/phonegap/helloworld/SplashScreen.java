@@ -12,7 +12,7 @@ import android.widget.ProgressBar;
 public class SplashScreen extends Activity {
 
 	 // Splash screen timer
-    private static int SPLASH_TIME_OUT = 6000;
+    private static int SPLASH_TIME_OUT = 4000;
     /** Called when the activity is first created. */
    	private static int myProgress=0;
    	private ProgressBar progressBar;
