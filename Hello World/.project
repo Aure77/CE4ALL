@@ -34,7 +34,7 @@
 		<link>
 			<name>config.xml</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/config.xml</locationURI>
+			<locationURI>$%7BPROJECT_LOC%7D/res/xml/config.xml</locationURI>
 		</link>
 		<link>
 			<name>merges</name>
@@ -44,7 +44,7 @@
 		<link>
 			<name>www</name>
 			<type>2</type>
-			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/www</locationURI>
+			<locationURI>$%7BPROJECT_LOC%7D/assets/www</locationURI>
 		</link>
 	</linkedResources>
 </projectDescription>
