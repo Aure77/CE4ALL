@@ -1,0 +1,341 @@
+/************************************** RESET CSS *************************************************/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/************************************** FIN DU RESET CSS *************************************************/
+
+/************************************** STYLE MOBILE *************************************************/
+
+@media (max-width: 640px) {
+    * {
+        /* -webkit-box-sizing: border-box;
+           -moz-box-sizing: border-box;
+                box-sizing: border-box; */
+    }
+    
+    /* passer body (et tous les éléments de largeur fixe) en largeur automatique */
+
+    body {
+        width: auto;
+        margin: 0;
+        padding: 0;
+    }
+    
+    /* fixer une largeur maximale de 100% aux éléments potentiellement problématiques */
+
+    img,
+    table,
+    td,
+    blockquote,
+    code,
+    pre,
+    textarea,
+    input,
+    iframe,
+    object,
+    embed,
+    video {
+        max-width: 100%;
+    }
+    
+    /* conserver le ratio des images */
+
+    img {
+        height: auto;
+    }
+    
+    /* gestion des mots longs */
+
+    textarea,
+    table,
+    td,
+    th,
+    code,
+    pre,
+    samp {
+        -webkit-hyphens: auto; /* césure propre */
+        -moz-hyphens: auto;
+        hyphens: auto;
+        word-wrap: break-word; /* passage à la ligne forcé */
+    }
+    
+    code,
+    pre,
+    samp {
+        white-space: pre-wrap; /* passage à la ligne spécifique pour les éléments à châsse fixe */
+    }
+    
+    /* Passer à une seule colonne (à appliquer aux éléments multi-colonnes) */
+
+    element1,
+    element2 {
+        float: none;
+        width: auto;
+    }
+    
+    /* masquer les éléments superflus */
+
+    .hide_mobile {
+        display: none !important;
+    }
+    
+    /* Un message personnalisé */
+}
+
+
+@media (max-device-width:768px) and (orientation: landscape) {
+  html {
+   -webkit-text-size-adjust: 100%;
+   -ms-text-size-adjust: 100%;
+  }
+}
+
+/************************************** FIN STYLE MOBILE *******************************************/
+
+body {
+	
+}
+
+.ce-right {
+	float:right;
+}
+
+.ce-background-splash {
+	background-color:#8cc8f4;
+}
+
+.ce-splash {
+/*
+width:320px;
+height:568px;
+*/
+text-align:center;
+margin:0 auto;
+display:block;
+}
+
+.ce-logoSG {
+
+	display:block;
+	text-align:center;
+	margin:0 auto;
+	
+	width:136px;
+	height:27px;
+	background:url(../img/splash/logoSG-min.png) 0 0 no-repeat;
+	
+	position:absolute;
+	bottom:20px;
+	left:50%;
+	margin-left:-68px;
+	
+}
+
+header {
+	background-color:#0089b9;
+	overflow:hidden;
+}
+
+	nav .ce-menu-wrapper {
+		text-align:center;
+		margin: 15px auto 0 auto;
+		overflow: hidden;
+		width:220px;
+
+	}
+
+		nav .ce-menu-wrapper div.ce-menu-menuItem{
+			float:left;
+
+
+		}
+
+.ce-img-menu-bouton, .ce-img-menu-actualites, .ce-img-menu-bonplan, .ce-img-menu-lastminute, .ce-img-menu-billet, .ce-img-user, .ce-img-shop, .ce-img-logo, .ce-img-menu {
+	display:block;
+	background-size:320px 250px;
+	background:url(../img/sprite.png) 0 0 no-repeat;
+}
+
+.ce-img-user {
+	width:20px;
+	height:20px;
+	padding: 12px;
+	background-position: -166px -6px;
+	cursor:pointer;
+}
+
+.ce-img-menu {
+	width:20px;
+	height:20px;
+	padding: 12px;
+	float: left;
+	margin-top: -44px;
+	background-position: -93px -6px;
+	cursor:pointer;
+}
+
+.ce-img-shop {
+	width:21px;
+	height:21px;
+	padding: 12px;
+	background-position: -132px -6px;
+	cursor:pointer;
+}
+
+
+.ce-img-logo {
+	width:64px;
+	height: 45px;
+	background-position: 0px 0px;
+	text-align:center;
+	margin:0 auto;
+	cursor:pointer;
+}
+
+.ce-img-menu-actualites {
+	width:69px;
+	height: 69px;
+	background-position: -8px -82px;
+	cursor:pointer;
+	margin: 20px 0 0 0;
+
+}
+
+.ce-img-menu-bonplan {
+	width:57px;
+	height: 65px;
+	background-position: -175px -82px;
+	cursor:pointer;
+	margin: -4px 0 0 7px;
+
+}
+
+.ce-img-menu-lastminute {
+	width:69px;
+	height: 69px;
+	background-position: -246px -82px;
+	cursor:pointer;
+	margin: 21px 0 0 -19px;
+
+}
+
+.ce-img-menu-billet {
+	width:57px;
+	height: 65px;
+	background-position: -95px -82px;
+	cursor:pointer;
+	margin: -4px 0 0 -20px;
+
+}
+
+.ce-img-menu-bouton {
+	width:82px;
+	height: 82px;
+	background-position: -212px 3px;
+	cursor:pointer;
+	margin: -28px 0 0 69px;
+	float:left;
+	border:none;
+	
+}
+
+/* .ce-img-menu-bonplan, .ce-img-menu-lastminute, .ce-img-menu-billet */
+
+
+@media (max-width:340px) {
+	.ce-splash {
+		background:url(../img/splash/splash-iphone4.jpg) 0 0 no-repeat;
+		width:320px;
+		height:568px;
+	}
+	
+}
+
+@media (min-width:360px) and (max-width:414px) {
+	.ce-splash {
+		background:url(../img/splash/splash-iphone6.jpg) 0 0 no-repeat;
+		width:375px;
+		height:666px;
+	}
+
+
+}
+
+
+@media (min-width:415px) {
+	.ce-splash {
+		background:url(../img/splash/splash.jpg) 0 0 no-repeat;
+		width:640px;
+		height:1136px;
+	}
+	
+
+
+
+}
+
+@media (min-width:800px) {
+	.ce-splash {
+		background:url(../img/splash/splash-tablette.jpg) 0 0 no-repeat;
+		width:1280px;
+		height:1136px;
+	}
+	
+	.ce-logoSG {
+		width:272px;
+		height:54px;
+		margin-left:-136px;
+		background:url(../img/splash/logoSG.png) 0 0 no-repeat;
+	}
+
+
+}
+
+
+
+
+
+
+
