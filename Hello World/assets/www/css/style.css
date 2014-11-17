@@ -50,9 +50,9 @@ table {
 
 @media (max-width: 640px) {
     * {
-        /* -webkit-box-sizing: border-box;
+/*          -webkit-box-sizing: border-box;
            -moz-box-sizing: border-box;
-                box-sizing: border-box; */
+                box-sizing: border-box;  */
     }
     
     /* passer body (et tous les éléments de largeur fixe) en largeur automatique */
@@ -135,6 +135,11 @@ table {
 /************************************** FIN STYLE MOBILE *******************************************/
 
 body {
+	background-color:#f6f8fa;
+	font-family: "Helvetica Neue", Helvetica , sans-serif;
+	text-align:center;
+	margin:0 auto;
+	 
 	
 }
 
@@ -191,8 +196,70 @@ header {
 
 
 		}
-
-.ce-img-menu-bouton, .ce-img-menu-actualites, .ce-img-menu-bonplan, .ce-img-menu-lastminute, .ce-img-menu-billet, .ce-img-user, .ce-img-shop, .ce-img-logo, .ce-img-menu {
+		
+article.ce-article{
+	width: 44%;
+	display: inline-block;
+	text-align: center;
+	margin: 0 auto;
+	margin: 15px 1%;
+}
+	
+	article .ce-article-title{
+		height:40px;
+		background-color:#0089b9;
+		-webkit-border-radius: 5px 5px 0 0;
+		border-radius: 5px 5px 0 0;
+		-webkit-box-shadow: 0px 2px 0px 1px #0280ac;
+		box-shadow: 0px 2px 0px 1px #0280ac;
+		margin-bottom: 35px;
+	}
+	
+	.ce-img-article-actualites {
+		background: #0089b9;
+		border-radius: 50%;
+		margin: 0 auto;
+		display: block;
+		width: 60px;
+		height: 40px;
+		-webkit-box-shadow: 0px 2px 0px 1px #0280ac;
+		box-shadow: 0px 2px 0px 1px #0280ac
+	}
+	
+		article .ce-article-title h3{
+			color:#FFF;
+			padding-top: 5px;
+		}
+	
+	.ce-article-content {
+		background: #FFF;
+		-webkit-box-shadow: 0px 2px 0px 1px #e3e4e8;
+		box-shadow: 0px 2px 0px 1px #e3e4e8;
+		color:#989fa9;
+		margin-bottom: 15px;
+	}
+	
+		.ce-article-content .ce-article-content-title {
+			background: #e8ebed;
+			padding:3px;
+			color:#0089b9;
+			overflow: hidden;
+			font-size:0.5em;
+			text-align:left;
+		}
+		
+		
+			.ce-article-content-content{
+				text-align:left;
+				overflow: hidden;
+				font-size: 0.6em;
+				line-height: 12px;
+				padding: 5px;
+			
+			}
+		
+		
+.ce-img-menu-notification-bonplan, .ce-img-menu-notification-lastminute, .ce-img-menu-notification-billet, .ce-img-menu-notification-actualite, .ce-img-menu-bouton, .ce-img-menu-actualites, .ce-img-menu-bonplan, .ce-img-menu-lastminute, .ce-img-menu-billet, .ce-img-user, .ce-img-shop, .ce-img-logo, .ce-img-menu {
 	display:block;
 	background-size:320px 250px;
 	background:url(../img/sprite.png) 0 0 no-repeat;
@@ -273,13 +340,53 @@ header {
 .ce-img-menu-bouton {
 	width:82px;
 	height: 82px;
-	background-position: -212px 3px;
+	background-position: -301px -9px;
 	cursor:pointer;
 	margin: -28px 0 0 69px;
+	position: absolute;
+	top: 153px;
+	border:none;
+	
+}
+
+.ce-img-menu-notification-actualite {
+	width: 16px;
+	height: 16px;
+	background-position: -217px -20px;
+	cursor:pointer;
+	margin: -35px 0 0 0px;
 	float:left;
 	border:none;
 	
 }
+
+
+.ce-img-menu-notification-actualite, .ce-img-menu-notification-bonplan, .ce-img-menu-notification-lastminute, .ce-img-menu-notification-billet{
+	width: 16px;
+	height: 16px;
+	background-position: -217px -20px;
+	cursor:pointer;
+	float:left;
+	border:none;
+	
+}
+
+.ce-img-menu-notification-bonplan {
+	margin: -61px 0 0 6px;
+	
+}
+
+
+.ce-img-menu-notification-lastminute {
+	margin: -73px 0 0 4px;
+}
+
+.ce-img-menu-notification-billet {
+	margin: -53px 0 0 -20px;
+}
+
+
+
 
 /* .ce-img-menu-bonplan, .ce-img-menu-lastminute, .ce-img-menu-billet */
 
