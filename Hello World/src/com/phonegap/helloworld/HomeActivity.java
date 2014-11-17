@@ -16,12 +16,12 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.phonegap.helloworld.util.DeviceDetector;
 import com.phonegap.helloworld.util.NavDrawerItem;
 import com.phonegap.helloworld.util.NavDrawerListAdapter;
  
@@ -51,14 +51,29 @@ public class HomeActivity extends FragmentActivity {
  
         mTitle = mDrawerTitle = getTitle();
  
-        // load slide menu items
+        initializeMenuItems();        
+		if (DeviceDetector.isTablet(this)) {
+//			LinearLayout homeLayout = (LinearLayout) findViewById(R.id.home_layout);
+//			homeLayout.
+		} else {
+			initializeSlideMenuDrawer(); // slide menu only on phones
+		}
+ 
+        if (savedInstanceState == null) {
+            // on first time display view for first nav item
+            displayView(0);
+        }
+    }
+
+
+
+	private void initializeMenuItems() {
+		// load slide menu items
         navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items);
  
         // nav drawer icons from resources
-        navMenuIcons = getResources()
-                .obtainTypedArray(R.array.nav_drawer_icons);
- 
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        navMenuIcons = getResources().obtainTypedArray(R.array.nav_drawer_icons); 
+        
         mDrawerList = (ListView) findViewById(R.id.list_slidermenu);
  
         navDrawerItems = new ArrayList<NavDrawerItem>();
@@ -80,14 +95,17 @@ public class HomeActivity extends FragmentActivity {
  
         // Recycle the typed array
         navMenuIcons.recycle();
- 
-        mDrawerList.setOnItemClickListener(new SlideMenuClickListener());
- 
+        
         // setting the nav drawer list adapter
-        adapter = new NavDrawerListAdapter(getApplicationContext(),
-                navDrawerItems);
+        adapter = new NavDrawerListAdapter(getApplicationContext(), navDrawerItems);
         mDrawerList.setAdapter(adapter);
- 
+        
+        mDrawerList.setOnItemClickListener(new SlideMenuClickListener());
+	}
+	
+	private void initializeSlideMenuDrawer() {
+		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+
         // enabling action bar app icon and behaving it as toggle button
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
@@ -123,25 +141,25 @@ public class HomeActivity extends FragmentActivity {
         actionBar.setDisplayUseLogoEnabled(true);
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(false);
- 
-        if (savedInstanceState == null) {
-            // on first time display view for first nav item
-            displayView(0);
-        }
-    }
+	}
  
     /**
      * Slide menu item click listener
      * */
-    private class SlideMenuClickListener implements
-            ListView.OnItemClickListener {
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position,
-                long id) {
-            // display view for selected nav drawer item
-            displayView(position);
-        }
-    }
+	private class SlideMenuClickListener implements ListView.OnItemClickListener {
+		@Override
+		public void onItemClick(AdapterView<?> parent, View view, int position,	long id) {
+			// display view for selected nav drawer item
+			displayView(position);
+			// update selected item and title, then close the drawer
+			mDrawerList.setItemChecked(position, true);
+			mDrawerList.setSelection(position);
+			setTitle(navMenuTitles[position]);
+			if (mDrawerLayout != null) {
+				mDrawerLayout.closeDrawer(mDrawerList);
+			}
+		}
+	}
  
     /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -211,15 +229,8 @@ public class HomeActivity extends FragmentActivity {
             FragmentManager fragmentManager = getSupportFragmentManager();  
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();  
                
-            
-            fragmentManager.beginTransaction()
-                    .replace(R.id.frame_container, fragment).commit();
+            fragmentManager.beginTransaction().replace(R.id.frame_container, fragment).commit();
             fragmentTransaction.commit(); 
-            // update selected item and title, then close the drawer
-            mDrawerList.setItemChecked(position, true);
-            mDrawerList.setSelection(position);
-            setTitle(navMenuTitles[position]);
-            mDrawerLayout.closeDrawer(mDrawerList);
         } else {
             // error in creating fragment
             Log.e("MainActivity", "Error in creating fragment");
@@ -237,18 +248,22 @@ public class HomeActivity extends FragmentActivity {
      * onPostCreate() and onConfigurationChanged()...
      */
  
-    @Override
-    protected void onPostCreate(Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
-        // Sync the toggle state after onRestoreInstanceState has occurred.
-        mDrawerToggle.syncState();
-    }
+	@Override
+	protected void onPostCreate(Bundle savedInstanceState) {
+		super.onPostCreate(savedInstanceState);
+		if (mDrawerToggle != null) {
+			// Sync the toggle state after onRestoreInstanceState has occurred.
+			mDrawerToggle.syncState();
+		}
+	}
  
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        // Pass any configuration change to the drawer toggls
-        mDrawerToggle.onConfigurationChanged(newConfig);
-    }
+	@Override
+	public void onConfigurationChanged(Configuration newConfig) {
+		super.onConfigurationChanged(newConfig);
+		if (mDrawerToggle != null) {
+			// Pass any configuration change to the drawer toggls
+			mDrawerToggle.onConfigurationChanged(newConfig);
+		}
+	}
  
 }
