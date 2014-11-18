@@ -57,14 +57,30 @@
 		<script>
 			$(document).ready(function(){
 				$('a.ce-buy-ticket').on('click', function() {
-					var ticketId = $(this).attr('data-ticket-id');
-					var ticketTitle = $(this).parent().parent().find('h3:eq(0)').text();
-					if(confirm("Voulez-vous acheter le billet : " + ticketTitle)) {
-						buyTicket(ticketId);
-					}
+					buyTicket($(this).attr('data-ticket-id'));
 				});
 			});
 		</script>
+		<script type="text/javascript">
+    $(document).ready(function(){
+        $("select").change(function(){
+            $( "select option:selected").each(function(){
+                if($(this).attr("value")=="dernieres"){
+                    $(".box").hide();
+                    $(".red").show();
+                }
+                if($(this).attr("value")=="parcs"){
+                    $(".box").hide();
+                    $(".green").show();
+                }
+                if($(this).attr("value")=="musees"){
+                    $(".box").hide();
+                    $(".blue").show();
+                }
+            });
+        }).change();
+    });
+</script>
 </head>
 
 <body>
@@ -77,11 +93,12 @@
 		</header> -->
 		<!-- <aside> Les à-cotés de la page </aside> -->
 		<div class="ce-page-billetterie">
+		
 			<article class="ce-article">
 				<select class="form-control">
-				  <option value="voyage">voyage</option>
-				  <option value="concert">concert</option>
-				  <option value="musee">musée</option>
+				  <option value="dernieres">Dernières minutes</option>
+				  <option value="parcs">Parcs</option>
+				  <option value="musees">Musées</option>
 				</select>
 				<div class="ce-article-title">
 					<h3>Billetterie</h3>
@@ -89,9 +106,10 @@
 						<span class="ce-img-article-actualites"></span>
 					</div>
 				</div>
+				<div class="red box">
 				<div class="ce-article-content">
 					<div class="ce-article-content-bonplan">
-						<div class="ce-img-article-type"></div>
+						<div class="ce-img-article-type ce-img-asterix"></div>
 						<div class="ce-article-info">
 							<div class="ce-right"><span class="ce-img-article-content-title-like"></span>10</div>
 							<h3>Billet Parc astérix 1 jour  1 Parc</h3>
@@ -107,13 +125,94 @@
 						</div>
 					</div>	
 					<div class="ce-article-content-bonplan">
-						<div class="ce-img-article-type"></div>
+						<div class="ce-img-article-type ce-img-rugby"></div>
+						<div class="ce-article-info">
+							<div class="ce-right"><span class="ce-img-article-content-title-like"></span>10</div>
+							<h3>Billet Match XV de France</h3>
+							<h4>Valable jusqu'au 10/01/2015</h4>
+							<p>Trois essais contre les Fidji pour sa première sélection, un autre juste après face à l'Australie : l'ailier du XV de France marque les imaginations.</p>
+							<p class="ce-article-info-lastminute"><span class="ce-img-article-content-title-fire "></span>Il vous reste <span>2</span> jours pour bénéficier de cette offre...!</p>
+						</div>
+						<div class="ce-article-boutons">
+							<a class="ce-right ce-buy-ticket" data-ticket-id="2125"><span class="ce-img-button-acheter"></span>Acheter</a>
+							<a class="ce-right"><span class="ce-img-button-like"></span>Liker</a>
+							<h3>140€</h3>
+						</div>
+					</div>
+					<div class="ce-article-content-bonplan">
+						<div class="ce-img-article-type ce-img-foot"></div>
+						<div class="ce-article-info">
+							<div class="ce-right"><span class="ce-img-article-content-title-like"></span>10</div>
+							<h3>Billet final football junior</h3>
+							<h4>Valable jusqu'au 07/02/2015</h4>
+							<p>Venez assister à la final de la coupe du monde des moins de 16 ans.</p>
+	<p class="ce-article-info-lastminute"><span class="ce-img-article-content-title-fire "></span>Il vous reste <span>3</span> jours pour bénéficier de cette offre...!</p>
+						</div>
+						<div class="ce-article-boutons">
+							<a class="ce-right ce-buy-ticket" data-ticket-id="1245"><span class="ce-img-button-acheter"></span>Acheter</a>
+							<a class="ce-right"><span class="ce-img-button-like"></span>Liker</a>
+							<h3>90€</h3>
+						</div>
+					</div>	
+				</div>
+				</div>
+				<div class="green box">
+    	<div class="ce-article-content">
+					<div class="ce-article-content-bonplan">
+						<div class="ce-img-article-type ce-img-asterix"></div>
 						<div class="ce-article-info">
 							<div class="ce-right"><span class="ce-img-article-content-title-like"></span>10</div>
 							<h3>Billet Parc astérix 1 jour  1 Parc</h3>
 							<h4>Valable jusqu'au 13/05/2015</h4>
 							<p>Détonnant mélange de 35 attractions et de grands spectacles, le tout dans des décors truffés d'humour gaulois, Parc Astérix, 
 	c'est la "potion loisirs" testée et approuvée depuis 1989 par des millions de visiteurs.</p>
+						</div>
+						<div class="ce-article-boutons">
+							<a class="ce-right ce-buy-ticket" data-ticket-id="1090"><span class="ce-img-button-acheter"></span>Acheter</a>
+							<a class="ce-right"><span class="ce-img-button-like"></span>Liker</a>
+							<h3>45€</h3>
+						</div>
+					</div>	
+					<div class="ce-article-content-bonplan">
+						<div class="ce-img-article-type ce-img-disneyland"></div>
+						<div class="ce-article-info">
+							<div class="ce-right"><span class="ce-img-article-content-title-like"></span>10</div>
+							<h3>Disneyland - Billet 1 jour 2 Parcs</h3>
+							<h4>Valable jusqu'au 25/09/2015</h4>
+							<p>Acces complet aux deux parcs pour un adulte.</p>
+						</div>
+						<div class="ce-article-boutons">
+							<a class="ce-right ce-buy-ticket" data-ticket-id="2125"><span class="ce-img-button-acheter"></span>Acheter</a>
+							<a class="ce-right"><span class="ce-img-button-like"></span>Liker</a>
+							<h3>60€</h3>
+						</div>
+					</div>
+					
+				</div>
+    </div>
+    <div class="blue box">
+    	<div class="ce-article-content">
+					<div class="ce-article-content-bonplan">
+						<div class="ce-img-article-type ce-img-louvre"></div>
+						<div class="ce-article-info">
+							<div class="ce-right"><span class="ce-img-article-content-title-like"></span>10</div>
+							<h3>Billet Musée du Louvre</h3>
+							<h4>Valable jusqu'au 13/05/2015</h4>
+							<p>Le musée du Louvre est un musée d'art et d'antiquités situé au centre de Paris dans le palais du Louvre. C'est l'un des plus grands musées du monde, et le plus grand de Paris, par sa surface d'exposition de 60 600 m24.</p>
+						</div>
+						<div class="ce-article-boutons">
+							<a class="ce-right ce-buy-ticket" data-ticket-id="1090"><span class="ce-img-button-acheter"></span>Acheter</a>
+							<a class="ce-right"><span class="ce-img-button-like"></span>Liker</a>
+							<h3>25€</h3>
+						</div>
+					</div>	
+					<div class="ce-article-content-bonplan">
+						<div class="ce-img-article-type ce-img-orsay"></div>
+						<div class="ce-article-info">
+							<div class="ce-right"><span class="ce-img-article-content-title-like"></span>10</div>
+							<h3>Billet Musée d'Orsay</h3>
+							<h4>Valable jusqu'au 13/05/2015</h4>
+							<p>Orsay1 est une commune française située à vingt-deux kilomètres au sud-ouest de Paris dans le département de l’Essonne en région Île-de-France. </p>
 						</div>
 						<div class="ce-article-boutons">
 							<a class="ce-right ce-buy-ticket" data-ticket-id="2125"><span class="ce-img-button-acheter"></span>Acheter</a>
@@ -121,24 +220,12 @@
 							<h3>45€</h3>
 						</div>
 					</div>
-					<div class="ce-article-content-bonplan">
-						<div class="ce-img-article-type"></div>
-						<div class="ce-article-info">
-							<div class="ce-right"><span class="ce-img-article-content-title-like"></span>10</div>
-							<h3>Billet Parc astérix 1 jour  1 Parc</h3>
-							<h4>Valable jusqu'au 13/05/2015</h4>
-							<p>Détonnant mélange de 35 attractions et de grands spectacles, le tout dans des décors truffés d'humour gaulois, Parc Astérix, 
-	c'est la "potion loisirs" testée et approuvée depuis 1989 par des millions de visiteurs.</p>
-	<p class="ce-article-info-lastminute"><span class="ce-img-article-content-title-fire "></span>Il vous reste <span>3</span> jours pour bénéficier de cette offre...!</p>
-						</div>
-						<div class="ce-article-boutons">
-							<a class="ce-right ce-buy-ticket" data-ticket-id="1245"><span class="ce-img-button-acheter"></span>Acheter</a>
-							<a class="ce-right"><span class="ce-img-button-like"></span>Liker</a>
-							<h3>45€</h3>
-						</div>
-					</div>	
 				</div>
+    </div>
 			</article>
+		</div>
+		
+    
 		</div>
 		<footer><!-- Pied-de-page de la page -> site --></footer>
 </body>
