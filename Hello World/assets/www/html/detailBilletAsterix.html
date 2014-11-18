@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+        <title>CE 4 All</title>
+        <meta charset="utf-8">
+        <meta name="description" content="165c. uniques">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		
+		<!-- 16x16 -->
+		<link rel="shortcut icon" href="/favicon.ico">
+		<!-- 32x32 -->
+		<link rel="shortcut icon" href="/favicon.png">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		<!-- Windows 8 / RT -->
+		<meta name="msapplication-TileImage" content="img/apple-touch-icon-144x144-precomposed.png">
+		<meta name="msapplication-TileColor" content="#000">
+		<meta http-equiv="cleartype" content="on">
+				
+		
+		
+		<link href="../css/style.css" rel="stylesheet" media="all" type="text/css"> 
+		<script src="../js/jquery.js"></script>
+		<script src="../js/modernizr-2.6.2.min.js"></script>
+		
+		<script>
+			$(document).ready(function(){
+
+				// hide #back-top first
+				$("#back-top").hide();
+				
+				// fade in #back-top
+				$(function () {
+					$(window).scroll(function () {
+						if ($(this).scrollTop() > 200) {
+							$('#back-top').fadeIn();
+						} else {
+							$('#back-top').fadeOut();
+						}
+					});
+
+					// scroll body to 0px on click
+					$('#back-top a').click(function () {
+						$('body,html').animate({
+							scrollTop: 0
+						}, 800);
+						return false;
+					});
+				});
+				
+				var tickets = JSON.parse(localStorage.getItem("tickets")) || [];
+				
+				tickets.forEach(function(ticket, i) {
+					var rightClass = i % 2 == 0 ? "ce-right" : "";
+					var ceCode = ticket.type == "BARRE_CODE" ? '<div class="ce-code"><label>Code barre</label><img src="../img/picture/billetterie/codeBarre.png" /></div>' : '<div class="ce-code"><label>QR code</label><img src="../img/picture/billetterie/qrCode.png" /></div>';
+				    $('#ticket-list').append('<div class="ce-article-content-billetBlock '+rightClass+'"><div class="'+ticket.imageUrl+'"></div><div class="ce-article-info"><h3>'+ticket.title+'</h3><h4>'+ticket.validity+'</h4>'+ceCode+'</div><div class="ce-article-boutons"><a class="ce-right"><span class="ce-img-button-voir"></span>Voir plus</a><a class="ce-right"><span class="ce-img-button-print"></span>Imprimer</a></div></div>');				    
+				});
+
+			});
+		</script>
+
+</head>
+
+<body>
+	<!-- DIV : Aucun sens sémantique - zone géographique -->
+
+		<!-- <aside> Les à-cotés de la page </aside> -->
+		<div class="ce-page-mesBillets">
+			<article class="ce-article">
+				<select class="form-control">
+				  <option value="voyage">voyage</option>
+				  <option value="concert">concert</option>
+				  <option value="musee">musée</option>
+				</select>
+				<div class="ce-article-title">
+					<h3>Mes billets</h3>
+					<div class="ce-fond-article">
+						<span class="ce-img-article-actualites"></span>
+					</div>
+				</div>
+				<div class="ce-article-content" id="ticket-list">
+					<!--<div class="ce-article-content-billetBlock ce-right">
+						<div class="ce-img-article-type"></div>
+						<div class="ce-article-info">
+							<h3>Billet Parc astérix 1 jour  1 Parc</h3>
+							<h4>Valable jusqu'au 13/05/2015</h4>
+							<p>Détonnant mélange de 35 attractions et de grands spectacles, le tout dans des décors truffés d'humour gaulois, Parc Astérix, 
+	c'est la "potion loisirs" testée et approuvée depuis 1989 par des millions de visiteurs.</p>
+						</div>
+						<div class="ce-article-boutons">
+							<a class="ce-right"><span class="ce-img-button-voir"></span>Voir plus</a>
+							<h3>45€</h3>
+						</div>
+					</div>
+					<div class="ce-article-content-billetBlock">
+						<div class="ce-img-article-type"></div>
+						<div class="ce-article-info">
+							<h3>Billet Parc astérix 1 jour  1 Parc</h3>
+							<h4>Valable jusqu'au 13/05/2015</h4>
+							<p>Détonnant mélange de 35 attractions et de grands spectacles, le tout dans des décors truffés d'humour gaulois, Parc Astérix, 
+	c'est la "potion loisirs" testée et approuvée depuis 1989 par des millions de visiteurs.</p>
+						</div>
+						<div class="ce-article-boutons">
+							<a class="ce-right"><span class="ce-img-button-voir"></span>Voir plus</a>
+							<h3>45€</h3>
+						</div>
+					</div>-->
+				</div>
+				<p id="back-top" style="display: block;">
+					<a href="#top"><span></span>Retour</a>
+				</p>
+			</article>
+		</div>
+		<footer><!-- Pied-de-page de la page -> site --></footer>
+</body>
+</html>
