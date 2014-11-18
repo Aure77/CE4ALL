@@ -39,12 +39,12 @@ public class HomeActivity extends FragmentActivity {
  
     // used to store app title
     private CharSequence mTitle;
- 
     // slide menu items
     private String[] navMenuTitles;
     private TypedArray navMenuIcons;
  
     private ArrayList<NavDrawerItem> navDrawerItems;
+    
     private NavDrawerListAdapter adapter;
  
     @Override
@@ -245,13 +245,13 @@ public class HomeActivity extends FragmentActivity {
             fragment = new BilletterieFragment();
             break;
         case 3:
-//            fragment = new CommunityFragment();
+            fragment = new ActualityFragment();
             break;
         case 4:
-//            fragment = new PagesFragment();
+            fragment = new BilletterieFragment();
             break;
         case 5:
-//            fragment = new WhatsHotFragment();
+            fragment = new BonPlanFragment();
             break;
  
         default:

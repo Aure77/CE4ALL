@@ -9,9 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class ProfileFragment extends CordovaFragmentAbstract {
+public class ActualityFragment extends CordovaFragmentAbstract {
      
-    public ProfileFragment(){}
+    public ActualityFragment(){}
     
     public static final int MENU_ID_TO_HIGHLIGHT = 1;
      
@@ -25,7 +25,7 @@ public class ProfileFragment extends CordovaFragmentAbstract {
           Config.init(getActivity());
           myWebView.getSettings().setJavaScriptEnabled(true);
 
-          myWebView.loadUrl("file:///android_asset/www/html/monCompte.html");
+          myWebView.loadUrl("file:///android_asset/www/html/actualite.html");
 
           return rootView;
     }
