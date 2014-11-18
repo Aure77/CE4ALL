@@ -4,6 +4,7 @@ import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import android.app.Activity;
 import android.app.NotificationManager;
@@ -15,6 +16,8 @@ import android.util.Log;
 
 import com.phonegap.helloworld.HomeActivity;
 import com.phonegap.helloworld.R;
+import com.phonegap.helloworld.fake.Billet;
+import com.phonegap.helloworld.fake.BilletterieFactory;
 
 public class NotificationPlugin extends CordovaPlugin {
 
@@ -23,8 +26,23 @@ public class NotificationPlugin extends CordovaPlugin {
 		
 		if (action.equals("buy-ticket")){
             try {
-            	final String responseText = "Le billet #" + args.getInt(0) + " a bien été achété !";
-                callbackContext.success(responseText);
+            	//final String responseText = "Le billet #" + args.getInt(0) + " a bien été achété !"; 
+            	Billet ticket = BilletterieFactory.findTicket(args.getInt(0));
+//                Map<String, String> copyFrom = new HashMap<String, String>();
+//                copyFrom.put("ticket", ticket.toString());
+//                copyFrom.put("ticketMessage", "Le billet #" + args.getInt(0) + " a bien été achété !");
+				JSONObject jsonTicket = new JSONObject();
+				jsonTicket.put("id", ticket.getId());
+				jsonTicket.put("title", ticket.getTitle());
+				jsonTicket.put("validity", ticket.getValidity());
+				jsonTicket.put("text", ticket.getText());
+				jsonTicket.put("price", ticket.getPrice());
+				jsonTicket.put("type", ticket.getType());
+				jsonTicket.put("imageUrl", ticket.getImageUrl());
+				JSONObject responseText = new JSONObject();
+				responseText.put("ticket", jsonTicket);
+				responseText.put("ticketMessage", "Le billet #" + args.getInt(0) + " a bien été achété !");
+				callbackContext.success(responseText );
                 return true;
             } catch (JSONException e) {
                 callbackContext.error("Failed to parse parameters");
