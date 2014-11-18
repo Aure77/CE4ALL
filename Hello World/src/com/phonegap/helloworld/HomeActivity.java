@@ -9,6 +9,7 @@ import android.app.ActionBar;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
@@ -53,6 +54,7 @@ public class HomeActivity extends FragmentActivity {
         mTitle = mDrawerTitle = getTitle();
  
         initializeMenuItems();
+        initializeActionBar();
         if(DeviceDetector.isTablet(this)) {
         	setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE); // force landscape on tablet
         } else {
@@ -133,23 +135,31 @@ public class HomeActivity extends FragmentActivity {
 				}
 			};
 			mDrawerLayout.setDrawerListener(mDrawerToggle);
+		}
+	}
 
-			ActionBar actionBar = getActionBar();
-			// enabling action bar app icon and behaving it as toggle button
-			actionBar.setDisplayHomeAsUpEnabled(true);
-			actionBar.setHomeButtonEnabled(true);
-			actionBar.setCustomView(R.layout.topbar);
-			// actionBar.setTitle("hi");
-			// actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.logo));
+	private void initializeActionBar() {
+		ActionBar actionBar = getActionBar();
+		// enabling action bar app icon and behaving it as toggle button
+		actionBar.setDisplayHomeAsUpEnabled(true);
+		actionBar.setHomeButtonEnabled(true);
+		actionBar.setCustomView(R.layout.topbar);
+		// actionBar.setTitle("hi");
+		// actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.logo));
+		if (mDrawerLayout != null) {
 			actionBar.setIcon(getResources().getDrawable(R.drawable.menuicon));
 			actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.menu));
-			actionBar.setCustomView(R.layout.topbar);
-			actionBar.setDisplayShowTitleEnabled(true);
-			actionBar.setDisplayShowCustomEnabled(true);
-			actionBar.setDisplayUseLogoEnabled(true);
-			actionBar.setDisplayShowHomeEnabled(true);
-			actionBar.setDisplayHomeAsUpEnabled(false);
+		} else {
+			ColorDrawable transparentDrawable = new ColorDrawable(getResources().getColor(R.color.list_background));
+			actionBar.setIcon(transparentDrawable);
+			actionBar.setBackgroundDrawable(transparentDrawable);
 		}
+		actionBar.setCustomView(R.layout.topbar);
+		actionBar.setDisplayShowTitleEnabled(true);
+		actionBar.setDisplayShowCustomEnabled(true);
+		actionBar.setDisplayUseLogoEnabled(true);
+		actionBar.setDisplayShowHomeEnabled(true);
+		actionBar.setDisplayHomeAsUpEnabled(false);
 	}
  
     /**
