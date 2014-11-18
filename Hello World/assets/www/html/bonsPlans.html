@@ -54,8 +54,11 @@
 		<script src="../js/modernizr-2.6.2.min.js"></script>
 
 		<script>
-			$(document).ready(function(){
-				cordova.exec(function(data) { alert(data); }, function(data) { alert(data); }, "NotificationPlugin", "notify", [1, "Test", "Message"]);
+			function addNotification() {
+				cordova.exec(function(data) { console.log(data); }, function(data) { alert(data); }, "NotificationPlugin", "notify", [1, "Bon plan", "Le nouvel iFad 18 en promo sur le CE !"]);
+			}
+			$(document).ready(function() {
+				setTimeout(addNotification, 10000);				
 			});
 		</script>
 </head>
