@@ -358,7 +358,20 @@ display:block;
 		border-radius: 5px 5px 5px 5px;
 
 	}
-
+	
+	.ce-code {
+		text-align:left;
+	}
+	
+	.ce-article-content .ce-article-info div.ce-code {
+		margin:15px 0;
+		text-align:left;
+	}
+	
+		.ce-article-content .ce-article-info div.ce-code label{
+			display:block;
+			color:#4fc1e9;
+		}
 
 
 	.ce-page-billetterie article.ce-article, .ce-page-modifier article.ce-article, .ce-page-bonplan article.ce-article {
@@ -454,6 +467,10 @@ display:block;
 				margin-left:5px;
 			}
 			
+			.ce-page-mesBillets .ce-article-boutons a {
+				font-size:0.9em;
+			}
+			
 			.ce-article-boutons-bonplan a{
 				margin-left:0px;
 			}
@@ -484,7 +501,7 @@ display:block;
 }
 
 
-.ce-img-menu-bouton, .ce-img-menu-actualites, .ce-img-option-billet, .ce-img-option-bonplan, .ce-img-menu-bonplan, .ce-img-menu-lastminute, .ce-img-menu-billet, .ce-img-menu-bouton{
+.ce-img-menu-bouton, .ce-img-button-print, .ce-img-menu-actualites, .ce-img-option-billet, .ce-img-option-bonplan, .ce-img-menu-bonplan, .ce-img-menu-lastminute, .ce-img-menu-billet, .ce-img-menu-bouton{
 	display:block;
 	background: transparent url(../img/spriteMenu.png) no-repeat;
 	-moz-background-size: 380px 225px;
@@ -497,6 +514,14 @@ display:block;
 	width: 30px;
 	height: 15px;
 	background-position: -292px -49px;
+	float: left;
+	cursor:pointer;
+}
+
+.ce-img-button-print {
+	width: 30px;
+	height: 15px;
+	background-position: -317px -10px;
 	float: left;
 	cursor:pointer;
 }
