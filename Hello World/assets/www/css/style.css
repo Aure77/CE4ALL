@@ -575,14 +575,36 @@ display:block;
 .ce-img-article-type {
 	max-width:566px;
 	height:144px;
-/* 	text-align: center;
-	margin: 0 auto; */
-	background:url(../img/picture/billetterie/asterix.png) 0 0 no-repeat;
-	/* background-size:283px 74px; */
 	border-bottom:2px solid #0089b9;
 	cursor:pointer;
 	border-radius: 5px 5px 5px 5px;
 }
+
+
+.ce-img-asterix {
+	background:url(../img/picture/billetterie/asterix.png) 0 0 no-repeat;
+}
+
+.ce-img-disneyland {
+	background:url(../img/picture/billetterie/disney.png) 0 0 no-repeat;
+}
+
+.ce-img-louvre {
+	background:url(../img/picture/billetterie/louvre.png) 0 0 no-repeat;
+}
+
+.ce-img-orsay {
+	background:url(../img/picture/billetterie/orsay.png) 0 0 no-repeat;
+}
+
+.ce-img-rugby {
+	background:url(../img/picture/billetterie/rugby.png) 0 0 no-repeat;
+}
+
+.ce-img-foot {
+	background:url(../img/picture/billetterie/foot.png) 0 0 no-repeat;
+}
+
 
 .ce-img-article-actualites {
 	width:50px;
