@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 public class ProfileFragment extends CordovaFragmentAbstract {
      
     public ProfileFragment(){}
+    
+    public static final int MENU_ID_TO_HIGHLIGHT = 1;
      
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -23,7 +25,7 @@ public class ProfileFragment extends CordovaFragmentAbstract {
           Config.init(getActivity());
           myWebView.getSettings().setJavaScriptEnabled(true);
 
-          myWebView.loadUrl("file:///android_asset/www/html/home.html");
+          myWebView.loadUrl("file:///android_asset/www/html/mesBillets.html");
 
           return rootView;
     }

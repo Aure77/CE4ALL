@@ -21,6 +21,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.phonegap.helloworld.util.DeviceDetector;
@@ -160,6 +161,20 @@ public class HomeActivity extends FragmentActivity {
 		actionBar.setDisplayUseLogoEnabled(true);
 		actionBar.setDisplayShowHomeEnabled(true);
 		actionBar.setDisplayHomeAsUpEnabled(false);
+		
+		ImageView imageViewMesBillets = (ImageView) findViewById(R.id.mesbilletsbutton);
+		imageViewMesBillets.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				FragmentManager fragmentManager = getSupportFragmentManager();
+				FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+				Fragment fragment = new ProfileFragment();
+				highlightMenu(ProfileFragment.MENU_ID_TO_HIGHLIGHT);
+				fragmentManager.beginTransaction().replace(R.id.frame_container, fragment).commit();
+				fragmentTransaction.commit();
+			}
+		});
 	}
  
     /**
