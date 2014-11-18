@@ -57,7 +57,11 @@
 		<script>
 			$(document).ready(function(){
 				$('a.ce-buy-ticket').on('click', function() {
-					buyTicket($(this).attr('data-ticket-id'));
+					var ticketId = $(this).attr('data-ticket-id');
+					var ticketTitle = $(this).parent().parent().find('h3:eq(0)').text();
+					if(confirm("Voulez-vous acheter le billet : " + ticketTitle)) {
+						buyTicket(ticketId);
+					}
 				});
 			});
 		</script>

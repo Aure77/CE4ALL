@@ -1,12 +1,9 @@
 function buyTicket(ticketId) {
-	cordova.exec(notifySuccess, notifyFailure, "NotificationPlugin", "buy-ticket", [ticketId]);
+	cordova.exec(buyTicketSuccess, buyTicketFailure, "NotificationPlugin", "buy-ticket", [ticketId]);
 }
-function buyTicket(ticketId, successCallback, errorCallback) {
-	cordova.exec(successCallback, errorCallback, "NotificationPlugin", "buy-ticket", [ticketId]);
-}
-function notifySuccess(data){
+function buyTicketSuccess(data){
 	alert(data);
 }		
-function notifyFailure(data) {
+function buyTicketFailure(data) {
 	alert("FAIL: " + data);
 }
