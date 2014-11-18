@@ -11,6 +11,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
+import android.util.Log;
 
 import com.phonegap.helloworld.HomeActivity;
 import com.phonegap.helloworld.R;
@@ -22,15 +23,14 @@ public class NotificationPlugin extends CordovaPlugin {
 		
 		if (action.equals("buy-ticket")){
             try {
-            	final String responseText = "Billet acheté : " + args.getInt(0);
+            	final String responseText = "Le billet #" + args.getInt(0) + " a bien été achété !";
                 callbackContext.success(responseText);
                 return true;
             } catch (JSONException e) {
                 callbackContext.error("Failed to parse parameters");
             }
             return false;
-        }
-		if (action.equals("notify")) {
+        } else if (action.equals("notify")) {
 			try {
 				final Activity activity = cordova.getActivity();
 				activity.runOnUiThread(new Runnable() {
@@ -60,6 +60,25 @@ public class NotificationPlugin extends CordovaPlugin {
 						} catch (JSONException e) {
 							callbackContext.error("Failed to parse parameters");
 						}
+					}
+				});
+				return true;
+			} catch (Exception e) {
+				callbackContext.error("Unable to run activity : " + e.getMessage());
+			}
+		} else if (action.equals("navigate")) {
+			try {
+				final HomeActivity homeActivity = (HomeActivity) cordova.getActivity();
+				homeActivity.runOnUiThread(new Runnable() {					
+					@Override
+					public void run() {						
+						try {
+							homeActivity.highlightMenu(args.getInt(0));
+							Log.d("Menu", "highlighted menu : " + args.getInt(0));
+						} catch (JSONException e) {
+							callbackContext.error("Failed to parse parameters");
+						}
+						callbackContext.success("ok");
 					}
 				});
 				return true;
