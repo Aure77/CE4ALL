@@ -46,15 +46,21 @@
 		<meta name="msapplication-TileColor" content="#000">
 		<meta http-equiv="cleartype" content="on">
 				
-		
+		<script type="text/javascript" src="../cordova.js"></script>
+		<script type="text/javascript" src="../cordova_plugins.js"></script>
 		
 		<link href="../css/style.css" rel="stylesheet" media="all" type="text/css"> 
 		<script src="../js/jquery.js"></script>
 		<script src="../js/modernizr-2.6.2.min.js"></script>
-
 		
-		
-
+		<script>
+			function addNotification() {
+				cordova.exec(function(data) { console.log(data); }, function(data) { alert(data); }, "NotificationPlugin", "notify", [1, "Bon plan", "Le nouvel iFad 18 en promo sur le CE !"]);
+			}
+			$(document).ready(function() {
+				setTimeout(addNotification, 10000);
+			});
+		</script>
 </head>
 
 <body>
