@@ -45,6 +45,10 @@
 		
 		<link href="../css/style.css" rel="stylesheet" media="all" type="text/css"> 
 		
+		<script type="text/javascript" src="../cordova.js"></script>
+		<script type="text/javascript" src="../cordova_plugins.js"></script>
+		<script type="text/javascript" src="../js/navigation.js"></script>	
+		
 		<script type="text/javascript" src="../js/jquery.js"></script>
 
 		<script>
@@ -71,6 +75,10 @@
 						return false;
 					});
 				});
+				
+				$('.ce-menu-menuItem a').on('click', function() {
+					navigate($(this).attr('data-menu-id'), this.href);
+				});
 
 			});
 		</script>
@@ -91,19 +99,19 @@
 			<nav>
 				<div class="ce-menu-wrapper">
 					<div class="ce-menu-menuItem">
-						<a href="#" class="ce-img-menu-actualites"></a>
+						<a href="actualite.html" data-menu-id="3" class="ce-img-menu-actualites"></a>
 						<span class="ce-img-menu-notification-actualite">+3</span>
 					</div>
 					<div class="ce-menu-menuItem">
-						<a href="#" class="ce-img-menu-billet"></a>
+						<a href="billetterie.html" data-menu-id="2" class="ce-img-menu-billet"></a>
 						<span class="ce-img-menu-notification-billet">+1</span>
 					</div>
 					<div class="ce-menu-menuItem">
-						<a href="#" class="ce-img-menu-bonplan"></a>
+						<a href="bonsPlans.html" data-menu-id="5" class="ce-img-menu-bonplan"></a>
 						<span class="ce-img-menu-notification-bonplan">+10</span>
 					</div>
 					<div class="ce-menu-menuItem">
-						<a href="#" class="ce-img-menu-lastminute"></a>
+						<a href="billetterie.html" data-menu-id="4" class="ce-img-menu-lastminute"></a>
 						<span class="ce-img-menu-notification-lastminute">+4</span>
 					</div>
 					<a class="ce-img-menu-bouton"></a>

@@ -80,7 +80,7 @@
 				var tickets = JSON.parse(localStorage.getItem("tickets")) || [];
 				
 				tickets.forEach(function(ticket, i) {
-					var rightClass = i % 2 == 0 ? "" : "ce-right";
+					var rightClass = i % 2 == 0 ? "ce-right" : "";
 					var ceCode = ticket.type == "BARRE_CODE" ? '<div class="ce-code"><label>Code barre</label><img src="../img/picture/billetterie/codeBarre.png" /></div>' : '<div class="ce-code"><label>QR code</label><img src="../img/picture/billetterie/qrCode.png" /></div>';
 				    $('#ticket-list').append('<div class="ce-article-content-billetBlock '+rightClass+'"><div class="ce-img-article-type '+ticket.imageUrl+'"></div><div class="ce-article-info"><h3>'+ticket.title+'</h3><h4>'+ticket.validity+'</h4>'+ceCode+'</div><div class="ce-article-boutons"><a class="ce-right"><span class="ce-img-button-voir"></span>Voir plus</a><a class="ce-right"><span class="ce-img-button-print"></span>Imprimer</a></div></div>');				    
 				});
