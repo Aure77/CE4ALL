@@ -50,9 +50,8 @@ table {
 
 @media (max-width: 640px) {
     * {
-/*          -webkit-box-sizing: border-box;
-           -moz-box-sizing: border-box;
-                box-sizing: border-box;  */
+/* 
+ */
     }
     
     /* passer body (et tous les éléments de largeur fixe) en largeur automatique */
@@ -143,8 +142,26 @@ body {
 	
 }
 
+a {
+cursor:pointer;
+}
+
+a:active
+{
+   outline:none;
+}
+
 .ce-right {
 	float:right;
+}
+
+.ce-left {
+	float:left;
+	margin-right:15px;
+}
+
+.ce-margeR {
+	margin-right:15px;
 }
 
 .ce-background-splash {
@@ -183,6 +200,9 @@ header {
 	overflow:hidden;
 }
 
+nav {
+	margin-bottom:15px;
+}
 	nav .ce-menu-wrapper {
 		text-align:center;
 		margin: 15px auto 0 auto;
@@ -202,7 +222,7 @@ article.ce-article{
 	display: inline-block;
 	text-align: center;
 	margin: 0 auto;
-	margin: 15px 1%;
+	margin: 0 1%;
 }
 	
 	article .ce-article-title{
@@ -215,7 +235,7 @@ article.ce-article{
 		margin-bottom: 35px;
 	}
 	
-	.ce-img-article-actualites {
+	.ce-fond-article {
 		background: #0089b9;
 		border-radius: 50%;
 		margin: 0 auto;
@@ -244,7 +264,7 @@ article.ce-article{
 			padding:3px;
 			color:#0089b9;
 			overflow: hidden;
-			font-size:0.5em;
+			font-size:0.7em;
 			text-align:left;
 		}
 		
@@ -252,24 +272,265 @@ article.ce-article{
 			.ce-article-content-content{
 				text-align:left;
 				overflow: hidden;
-				font-size: 0.6em;
-				line-height: 12px;
+				font-size: 0.8em;
+				line-height: 16px;
 				padding: 5px;
 			
 			}
-		
-		
-.ce-img-menu-notification-bonplan, .ce-img-menu-notification-lastminute, .ce-img-menu-notification-billet, .ce-img-menu-notification-actualite, .ce-img-menu-bouton, .ce-img-menu-actualites, .ce-img-menu-bonplan, .ce-img-menu-lastminute, .ce-img-menu-billet, .ce-img-user, .ce-img-shop, .ce-img-logo, .ce-img-menu {
-	display:block;
-	background-size:320px 250px;
-	background:url(../img/sprite.png) 0 0 no-repeat;
+			
+			.ce-article-content-content img{
+				float:left;
+				margin-right:5px;
+			
+			}
+
+			
+/********************************** PAGE BILLETTERIE ******************************/
+
+.ce-page-billetterie, .ce-page-mesBillets {
+	margin-top:15px;
+
 }
+	.select-wrapper select {
+		 width: 268px;
+		 padding: 5px;
+		 font-size: 16px;
+		 line-height: 1;
+		 border: 0;
+		 height: 34px;
+		 -webkit-appearance: none;
+		 cursor:pointer;
+		 background-image: linear-gradient(bottom, #EDEDED 12%, #FFFFFF 53%); /*Préfixe générique*/
+		 background-image: -o-linear-gradient(bottom, #EDEDED 12%, #FFFFFF 53%); /*Préfixe Opéra*/
+		 background-image: -moz-linear-gradient(bottom, #EDEDED 12%, #FFFFFF 53%); /*Préfixe Firefox*/
+		 background-image: -webkit-linear-gradient(bottom, #EDEDED 12%, #FFFFFF 53%); /*Préfixe Chrome*/
+		background-image: -ms-linear-gradient(bottom, #EDEDED 12%, #FFFFFF 53%); /*Préfixe IE*/
+	}
+	
+	
+
+	.ce-page-billetterie .ce-article-content, .ce-page-mesBillets .ce-article-content  {
+		overflow: hidden;
+		padding-bottom: 15px;
+		border-radius: 5px 5px 5px 5px;
+
+	}
+
+
+
+	.ce-page-billetterie article.ce-article{
+		width:95%;
+		margin: 0 auto;
+		display:block;
+		clear:both;
+
+	}
+	
+	.ce-page-mesBillets article.ce-article{
+		width:auto;
+		margin: 0 15px;
+		display:block;
+		clear:both;
+
+	}
+	
+	
+		.ce-article-content .ce-article-info{
+			text-align:left;
+			margin:10px 5px 0 5px;
+
+		}
+			.ce-article-content .ce-article-info p.ce-article-info-lastminute{
+				color:#c01d1d;
+
+			}
+		
+		.ce-article-content .ce-article-info div{
+			color:#0089b9;
+			margin-left:15px;
+
+		}
+		
+			.ce-article-content .ce-article-info h3{
+				font-size:1em;
+				color:#4fc1e9;
+				font-weight:bold;
+			}
+			
+			.ce-article-content .ce-article-info h4{
+				font-size:0.8em;
+				color:#99a3b1;
+				margin-top: 5px;
+			}
+			
+			.ce-article-content .ce-article-info p{
+				font-size:0.9em;
+				color:#99a3b1;
+				margin:10px 0 0 0;
+				line-height:19px;
+			}
+			
+		.ce-article-content-billetBlock	{
+			overflow: hidden;
+			margin-bottom: 20px;
+			width:45%;
+		}
+		
+		.ce-article-content-bonplan	{
+			overflow: hidden;
+			margin-bottom: 20px;
+		}
+		
+		.ce-article-boutons{
+			text-align:left ;
+			margin:10px 5px 0 5px;
+		}
+		
+			.ce-article-boutons h3{
+				font-size:1.2em;
+				color:#4fc1e9;
+				font-weight:bold;
+				padding-top: 15px;
+			}
+			
+			.ce-article-boutons a{
+				font-size: 1em;
+				background-color: #4fc1e9;
+				font-weight: bold;
+				border-radius: 10px 10px 10px 10px;
+				padding: 15px;
+				color: #FFF;
+				text-decoration: none;
+				margin-left:5px;
+			}
+			
+			.ce-article-boutons a.disabled{
+				opacity:0.5;
+				cursor:default;
+				pointer-events: none;				
+			}
+			
+			
+			.ce-article-boutons a:active{
+				background-color: #46aed3;
+				border-radius: 10px 10px 10px 10px;
+			}
+			
+/********************************** PAGE BILLETTERIE ******************************/
+
+		
+.ce-img-button-acheter, .ce-img-button-like, .ce-img-button-voir, .ce-img-article-content-title-fire, .ce-img-article-content-title-like, .ce-img-article-content-title-shop, .ce-img-article-lastminute, .ce-img-article-bonplan, .ce-img-article-billetterie, .ce-img-article-actualites, .ce-img-menu-notification-bonplan, .ce-img-menu-notification-lastminute, .ce-img-menu-notification-billet, .ce-img-menu-notification-actualite, .ce-img-user, .ce-img-shop, .ce-img-logo, .ce-img-menu {
+	display:block;
+	background: transparent url(../img/sprite.png) no-repeat;
+	-moz-background-size: 312px 240px;
+    -o-background-size: 312px 240px;
+    -webkit-background-size: 312px 240px;
+    background-size: 312px 240px;
+	
+}
+
+
+.ce-img-menu-bouton, .ce-img-menu-actualites, .ce-img-menu-bonplan, .ce-img-menu-lastminute, .ce-img-menu-billet, .ce-img-menu-bouton{
+	display:block;
+	background: transparent url(../img/spriteMenu.png) no-repeat;
+	-moz-background-size: 380px 150px;
+    -o-background-size: 380px 150px;
+    -webkit-background-size: 380px 150px;
+    background-size: 380px 150px;
+}
+
+.ce-img-button-voir{
+	width: 30px;
+	height: 15px;
+	background-position: -264px -49px;
+	float: left;
+	cursor:pointer;
+}
+
+.ce-img-button-like{
+	width: 30px;
+	height: 15px;
+	background-position: -193px -49px;
+	float: left;
+	cursor:pointer;
+}
+
+.ce-img-button-acheter{
+	width: 30px;
+	height: 15px;
+	background-position: -229px -49px;
+	float: left;
+	cursor:pointer;
+}
+
+
+.ce-img-article-content-title-like {
+	width: 18px;
+	height: 15px;
+	float: left;
+	background-position: -201px -10px;
+}
+
+.ce-img-article-content-title-fire {
+	width: 18px;
+	height: 15px;
+	float: left;
+	background-position: -228px -10px;
+}
+
+.ce-img-article-content-title-shop {
+	width: 18px;
+	height: 15px;
+	float: left;
+	background-position: -252px -10px;
+}
+
+.ce-img-article-type {
+	max-width:566px;
+	height:144px;
+/* 	text-align: center;
+	margin: 0 auto; */
+	background:url(../img/picture/billetterie/asterix.png) 0 0 no-repeat;
+	/* background-size:283px 74px; */
+	border-bottom:2px solid #0089b9;
+	cursor:pointer;
+	border-radius: 5px 5px 5px 5px;
+}
+
+.ce-img-article-actualites {
+	width:50px;
+	height:50px;
+	position:absolute;
+	background-position: 17px -37px;
+}
+
+.ce-img-article-lastminute {
+	width:50px;
+	height:50px;
+	position:absolute;
+	background-position: -29px -37px;
+}
+
+.ce-img-article-billetterie {
+	width:50px;
+	height:50px;
+	position:absolute;
+	background-position: -76px -37px;
+}
+
+.ce-img-article-bonplan {
+	width:50px;
+	height:50px;
+	position:absolute;
+	background-position: -126px -37px;
+}
+
 
 .ce-img-user {
 	width:20px;
 	height:20px;
 	padding: 12px;
-	background-position: -166px -6px;
+	background-position: -125px 7px;
 	cursor:pointer;
 }
 
@@ -279,7 +540,7 @@ article.ce-article{
 	padding: 12px;
 	float: left;
 	margin-top: -44px;
-	background-position: -93px -6px;
+	background-position: -57px 5px;
 	cursor:pointer;
 }
 
@@ -287,7 +548,7 @@ article.ce-article{
 	width:21px;
 	height:21px;
 	padding: 12px;
-	background-position: -132px -6px;
+	background-position: -91px 7px;
 	cursor:pointer;
 }
 
@@ -295,7 +556,7 @@ article.ce-article{
 .ce-img-logo {
 	width:64px;
 	height: 45px;
-	background-position: 0px 0px;
+	background-position: 5px 4px;
 	text-align:center;
 	margin:0 auto;
 	cursor:pointer;
@@ -304,59 +565,70 @@ article.ce-article{
 .ce-img-menu-actualites {
 	width:69px;
 	height: 69px;
-	background-position: -8px -82px;
+	background-position: -8px 1px;
 	cursor:pointer;
 	margin: 20px 0 0 0;
 
 }
 
+.ce-img-menu-actualites:active {
+	background-position: -8px -75px;
+}
+
 .ce-img-menu-bonplan {
 	width:57px;
 	height: 65px;
-	background-position: -175px -82px;
+	background-position: -147px 0;
 	cursor:pointer;
 	margin: -4px 0 0 7px;
 
 }
 
+.ce-img-menu-bonplan:active {
+	background-position: -147px -76px;
+}
+
+
 .ce-img-menu-lastminute {
 	width:69px;
 	height: 69px;
-	background-position: -246px -82px;
+	background-position: -207px -4px;
 	cursor:pointer;
 	margin: 21px 0 0 -19px;
 
 }
 
+.ce-img-menu-lastminute:active {
+	background-position: -207px -80px;
+}
+
 .ce-img-menu-billet {
 	width:57px;
 	height: 65px;
-	background-position: -95px -82px;
+	background-position: -78px 1px;
 	cursor:pointer;
 	margin: -4px 0 0 -20px;
 
 }
 
+.ce-img-menu-billet:active  {
+	background-position: -78px -75px;
+}
+
 .ce-img-menu-bouton {
 	width:82px;
 	height: 82px;
-	background-position: -301px -9px;
+	background-position: -286px -32px;
 	cursor:pointer;
 	margin: -28px 0 0 69px;
 	position: absolute;
-	top: 153px;
+	top: 106px;
 	border:none;
 	
 }
 
-.ce-img-menu-notification-actualite {
-	width: 16px;
-	height: 16px;
-	background-position: -217px -20px;
-	cursor:pointer;
-	margin: -35px 0 0 0px;
-	float:left;
-	border:none;
+.ce-img-menu-bouton:active {
+	opacity:0.5;
 	
 }
 
@@ -364,15 +636,18 @@ article.ce-article{
 .ce-img-menu-notification-actualite, .ce-img-menu-notification-bonplan, .ce-img-menu-notification-lastminute, .ce-img-menu-notification-billet{
 	width: 16px;
 	height: 16px;
-	background-position: -217px -20px;
+	background-position: -171px -8px;
 	cursor:pointer;
 	float:left;
 	border:none;
+	color: #FFF;
+	font-size: 0.5em;
+	padding: 5px 0 0 0;
 	
 }
 
 .ce-img-menu-notification-bonplan {
-	margin: -61px 0 0 6px;
+	margin: -63px 0 0 2px;
 	
 }
 
@@ -385,26 +660,41 @@ article.ce-article{
 	margin: -53px 0 0 -20px;
 }
 
-
+.ce-img-menu-notification-actualite {
+	margin: -35px 0 0 0px;
+}
 
 
 /* .ce-img-menu-bonplan, .ce-img-menu-lastminute, .ce-img-menu-billet */
 
 
-@media (max-width:340px) {
-	.ce-splash {
-		background:url(../img/splash/splash-iphone4.jpg) 0 0 no-repeat;
-		width:320px;
-		height:568px;
-	}
-	
-}
-
-@media (min-width:360px) and (max-width:414px) {
+@media (max-width:414px) {
 	.ce-splash {
 		background:url(../img/splash/splash-iphone6.jpg) 0 0 no-repeat;
 		width:375px;
 		height:666px;
+	}
+	
+	article.ce-article {
+		width:auto;
+		margin:0 15px;
+		display:block;
+	}
+	
+	article.ce-article .ce-article-content {
+		font-size:1.1em;
+	}
+	
+	nav {
+		margin-bottom:65px;
+	}
+	
+	.ce-page-mesBillets .ce-article-content-billetBlock {
+		width:auto;
+	}
+	
+	.ce-page-mesBillets .ce-article-content-billetBlock.ce-right{
+		float:none;
 	}
 
 
@@ -446,3 +736,124 @@ article.ce-article{
 
 
 
+select[multiple],
+select[size] {
+  height: auto;
+}
+
+.form-control {
+  display: block;
+  margin: 0 10px 15px 0;
+  width: 150px;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555555;
+  background-color: #ffffff;
+  background-image: none;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.form-control:focus {
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+.form-control::-moz-placeholder {
+  color: #999999;
+  opacity: 1;
+}
+.form-control:-ms-input-placeholder {
+  color: #999999;
+}
+.form-control::-webkit-input-placeholder {
+  color: #999999;
+}
+.form-control[disabled],
+.form-control[readonly],
+fieldset[disabled] .form-control {
+  cursor: not-allowed;
+  background-color: #eeeeee;
+  opacity: 1;
+}
+
+.invisible {
+  visibility: hidden;
+}
+.text-hide {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+.hidden {
+  display: none !important;
+  visibility: hidden !important;
+}
+.affix {
+  position: fixed;
+}
+
+
+
+
+
+
+/********************* BACK TO TOP ***********************************/
+
+
+#back-top {
+	position: fixed;
+	bottom: 30px;
+	margin-left: 0px;
+}
+
+#back-top a {
+	width: 108px;
+	display: block;
+	text-align: left;
+	font: 11px/100% Arial, Helvetica, sans-serif;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: #bbb;
+
+	/* transition */
+	-webkit-transition: 1s;
+	-moz-transition: 1s;
+	transition: 1s;
+}
+#back-top a:hover {
+	color: #000;
+}
+
+/* arrow icon (span tag) */
+#back-top span {
+	width: 54px;
+	height: 54px;
+	display: block;
+	margin-bottom: 7px;
+	background: #ddd url(../img/up-arrow.png) no-repeat center center;
+
+	/* rounded corners */
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+
+	/* transition */
+	-webkit-transition: 1s;
+	-moz-transition: 1s;
+	transition: 1s;
+}
+#back-top a:hover span {
+	background-color: #777;
+}
+
+/*********************************************************************************************

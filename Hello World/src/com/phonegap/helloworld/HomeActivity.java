@@ -63,11 +63,14 @@ public class HomeActivity extends FragmentActivity {
 			// on first time display view for first nav item
 			displayView(0);
 			// first listview element is selected
-			mDrawerList.setItemChecked(0, true);
+			highlightMenu(0);
 		}
     }
 
-
+	public void highlightMenu(final int position) {
+		mDrawerList.setItemChecked(position, true);
+		mDrawerList.setSelection(position);
+	}
 
 	private void initializeMenuItems() {
 		// load slide menu items
@@ -157,8 +160,7 @@ public class HomeActivity extends FragmentActivity {
 			// display view for selected nav drawer item
 			displayView(position);
 			// update selected item and title, then close the drawer
-			mDrawerList.setItemChecked(position, true);
-			mDrawerList.setSelection(position);
+			highlightMenu(position);
 			setTitle(navMenuTitles[position]);
 			if (mDrawerLayout != null) {
 				mDrawerLayout.closeDrawer(mDrawerList);

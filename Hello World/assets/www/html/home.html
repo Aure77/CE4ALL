@@ -5,55 +5,113 @@
         <title>CE 4 All</title>
         <meta charset="utf-8">
         <meta name="description" content="165c. uniques">
-		<meta name="viewport" content="user-scalable=no, width=device-width" />
-		<link rel="shortcut icon" href="../favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		
-		<link href="../css/style.css" rel="stylesheet" media="all" type="text/css"> 
+		<!-- 16x16 -->
+		<link rel="shortcut icon" href="/favicon.ico">
+		<!-- 32x32 -->
+		<link rel="shortcut icon" href="/favicon.png">
+		<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+		<!-- <link rel="apple-touch-icon-precomposed" href="img/apple-touch-icon-precomposed.png"> -->
+		<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+		<!-- <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/apple-touch-icon-72x72-precomposed.png"> -->
+		<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+		<!-- <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/apple-touch-icon-114x114-precomposed.png"> -->
+		<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+		<!-- <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/apple-touch-icon-144x144-precomposed.png"> -->
+
+		<!--iOS -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- <meta name="apple-mobile-web-app-title" content="320 and Up"> -->
+		<!-- <meta name="viewport" content="initial-scale=1.0"> (Use if apple-mobile-web-app-capable below is set to yes) -->
+		<!-- <meta name="apple-mobile-web-app-capable" content="yes"> -->
+		<!-- <meta name="apple-mobile-web-app-status-bar-style" content="black"> -->
+
+		<!-- Startup images -->
+
+		<!-- iPhone 3GS, pre-2011 iPod Touch -->
+		<!-- <link rel="apple-touch-startup-image" href="img/startup/startup-320x460.png" media="screen and (max-device-width:320px)"> -->
+		<!-- iPhone 4, 4S and 2011 iPod Touch-->
+		<!-- <link rel="apple-touch-startup-image" href="img/startup/startup-640x920.png" media="(max-device-width:480px) and (-webkit-min-device-pixel-ratio:2)"> -->
+		<!-- iPhone 5 and 2012 iPod Touch -->
+		<!-- <link rel="apple-touch-startup-image" href="img/startup/startup-640x1096.png" media="(max-device-width:548px) and (-webkit-min-device-pixel-ratio:2)"> -->
+		<!-- iPad landscape -->
+		<!-- <link rel="apple-touch-startup-image" sizes="1024x748" href="img/startup/startup-1024x748.png" media="screen and (min-device-width:481px) and (max-device-width:1024px) and (orientation:landscape)"> -->
+		<!-- iPad Portrait -->
+		<!-- <link rel="apple-touch-startup-image" sizes="768x1004" href="img/startup/startup-768x1004.png" media="screen and (min-device-width:481px) and (max-device-width:1024px) and (orientation:portrait)"> -->
+
+		<!-- Windows 8 / RT -->
 		
-		<script src="../cordova.js"></script>
-		<script src="../cordova_plugins.js"></script>
+		<link href="../css/style.css" rel="stylesheet" media="all" type="text/css"> 		
+		
+		<script type="text/javascript" src="../cordova.js"></script>
+		<script type="text/javascript" src="../cordova_plugins.js"></script>
+		<script type="text/javascript" src="../js/navigation.js"></script>	
+		
+		<script type="text/javascript" src="../js/jquery.js"></script>
 		<script>
-		function tryPlugin() {
-			cordova.exec(notifySuccess, notifyFailure, "NotificationPlugin", "buy-ticket", ["<TEST>"]);
-		}
-		function notifySuccess(data){
-		    alert(data);
-		}		
-		function notifyFailure(data) {
-		    alert("FAIL: " + data);
-		}
-		</script>
+			$(document).ready(function(){
+
+				// hide #back-top first
+				$("#back-top").hide();
+				
+				// fade in #back-top
+				$(function () {
+					$(window).scroll(function () {
+						if ($(this).scrollTop() > 200) {
+							$('#back-top').fadeIn();
+						} else {
+							$('#back-top').fadeOut();
+						}
+					});
+
+					// scroll body to 0px on click
+					$('#back-top a').click(function () {
+						$('body,html').animate({
+							scrollTop: 0
+						}, 800);
+						return false;
+					});
+				});
+				
+				$('.ce-menu-menuItem a').on('click', function() {
+					navigate($(this).attr('data-menu-id'), this.href)
+				});
+
+			});
+		</script>		
 </head>
 
 <body>
 		<div class="">
 		<!-- DIV : Aucun sens sémantique - zone géographique -->
 		
-			<header>
+<!-- 			<header>
 				<span class="ce-img-user ce-right"></span>
 				<span class="ce-img-shop ce-right"></span>
 				<span class="ce-img-logo"></span>
 				<span class="ce-img-menu"></span>
-			</header>
+			</header> -->
 			<nav>
 				<div class="ce-menu-wrapper">
 					<div class="ce-menu-menuItem">
-						<a href="#" onclick="tryPlugin()" target="_blank" class="ce-img-menu-actualites"></a>
-						<span class="ce-img-menu-notification-actualite"></span>
+						<a href="actualite.html" data-menu-id="3" class="ce-img-menu-actualites"></a>
+						<span class="ce-img-menu-notification-actualite">+3</span>
 					</div>
 					<div class="ce-menu-menuItem">
-						<a href="file:///android_asset/www/html/billeterie.html" target="_blank" class="ce-img-menu-billet"></a>
-						<span class="ce-img-menu-notification-billet"></span>
+						<a href="billetterie.html" data-menu-id="2" class="ce-img-menu-billet"></a>
+						<span class="ce-img-menu-notification-billet">+1</span>
 					</div>
 					<div class="ce-menu-menuItem">
-						<a href="www.google.fr" target="_blank" class="ce-img-menu-bonplan"></a>
-						<span class="ce-img-menu-notification-bonplan"></span>
+						<a href="bonsPlans.html" data-menu-id="5" class="ce-img-menu-bonplan"></a>
+						<span class="ce-img-menu-notification-bonplan">+10</span>
 					</div>
 					<div class="ce-menu-menuItem">
-						<a href="www.google.fr" target="_blank" class="ce-img-menu-lastminute"></a>
-						<span class="ce-img-menu-notification-lastminute"></span>
+						<a href="#" data-menu-id="4" class="ce-img-menu-lastminute"></a>
+						<span class="ce-img-menu-notification-lastminute">+4</span>
 					</div>
-					<button class="ce-img-menu-bouton"></button>
+					<a class="ce-img-menu-bouton"></a>
 				</div>
 					<!-- End of Nav Structure -->
 			</nav>        
@@ -61,107 +119,121 @@
 			<article class="ce-article">
 				<div class="ce-article-title">
 					<h3>Actualités</h3>
-					<span class="ce-img-article-actualites"></span>
-				</div>
-				<div class="ce-article-content">
-					<div class="ce-article-content-title">
-						<p class="ce-right">Publié le 12/09/2014</p>
-						<span>like</span>
-					</div>
-					<div class="ce-article-content-content">
-						<span></span>
-						<p class="ce-right">La 3ème édition de la course « Enfants sans Cancer » aura lieu le dimanche 28 septembre 2014.</p>
+					<div class="ce-fond-article">
+						<span class="ce-img-article-actualites"></span>
 					</div>
 				</div>
 				<div class="ce-article-content">
 					<div class="ce-article-content-title">
 						<p class="ce-right">Publié le 12/09/2014</p>
-						<span>like</span>
+						<div><span class="ce-img-article-content-title-like"></span>10</div>
 					</div>
 					<div class="ce-article-content-content">
-						<span></span>
-						<p class="ce-right">La 3ème édition de la course « Enfants sans Cancer » aura lieu le dimanche 28 septembre 2014.</p>
-					</div>
-				</div>
-				
-			</article>
-			<article class="ce-article">
-				<div class="ce-article-title">
-					<h3>Billeterie</h3>
-					<span class="ce-img-article-actualites"></span>
-				</div>
-				<div class="ce-article-content">
-					<div class="ce-article-content-title">
-						<p class="ce-right">Publié le 12/09/2014</p>
-						<span>like</span>
-					</div>
-					<div class="ce-article-content-content">
-						<span></span>
-						<p class="ce-right">La 3ème édition de la course « Enfants sans Cancer » aura lieu le dimanche 28 septembre 2014.</p>
+						<img src="../img/picture/article/pf.png" />
+						<p>La 3ème édition de la course « Enfants sans Cancer » aura lieu le dimanche 28 septembre 2014.</p>
 					</div>
 				</div>
 				<div class="ce-article-content">
 					<div class="ce-article-content-title">
 						<p class="ce-right">Publié le 12/09/2014</p>
-						<span>like</span>
+						<div><span class="ce-img-article-content-title-like"></span>10</div>
 					</div>
 					<div class="ce-article-content-content">
-						<span></span>
-						<p class="ce-right">La 3ème édition de la course « Enfants sans Cancer » aura lieu le dimanche 28 septembre 2014.</p>
+						<img src="../img/picture/article/pf.png" />
+						<p>La 3ème édition de la course « Enfants sans Cancer » aura lieu le dimanche 28 septembre 2014.</p>
 					</div>
 				</div>
 			</article>
 			<article class="ce-article">
 				<div class="ce-article-title">
-					<h3>Billeterie</h3>
-					<span class="ce-img-article-actualites"></span>
-				</div>
-				<div class="ce-article-content">
-					<div class="ce-article-content-title">
-						<p class="ce-right">Publié le 12/09/2014</p>
-						<span>like</span>
-					</div>
-					<div class="ce-article-content-content">
-						<span></span>
-						<p class="ce-right">La 3ème édition de la course « Enfants sans Cancer » aura lieu le dimanche 28 septembre 2014.</p>
+					<h3>Last minute</h3>
+					<div class="ce-fond-article">
+						<span class="ce-img-article-lastminute"></span>
 					</div>
 				</div>
 				<div class="ce-article-content">
 					<div class="ce-article-content-title">
 						<p class="ce-right">Publié le 12/09/2014</p>
-						<span>like</span>
+						<div class="ce-left"><span class="ce-img-article-content-title-like"></span>10</div>
+						<div><span class="ce-img-article-content-title-shop"></span>10</div>
 					</div>
 					<div class="ce-article-content-content">
-						<span></span>
-						<p class="ce-right">La 3ème édition de la course « Enfants sans Cancer » aura lieu le dimanche 28 septembre 2014.</p>
+						<img src="../img/picture/article/pf.png" />
+						<p>La 3ème édition de la course « Enfants sans Cancer » aura lieu le dimanche 28 septembre 2014.</p>
+					</div>
+				</div>
+				<div class="ce-article-content">
+					<div class="ce-article-content-title">
+						<p class="ce-right">Publié le 12/09/2014</p>
+						<div class="ce-left"><span class="ce-img-article-content-title-like"></span>10</div>
+						<div><span class="ce-img-article-content-title-shop"></span>10</div>
+					</div>
+					<div class="ce-article-content-content">
+						<img src="../img/picture/article/pf.png" />
+						<p>La 3ème édition de la course « Enfants sans Cancer » aura lieu le dimanche 28 septembre 2014.</p>
 					</div>
 				</div>
 			</article>
 			<article class="ce-article">
 				<div class="ce-article-title">
-					<h3>Billeterie</h3>
-					<span class="ce-img-article-actualites"></span>
-				</div>
-				<div class="ce-article-content">
-					<div class="ce-article-content-title">
-						<p class="ce-right">Publié le 12/09/2014</p>
-						<span>like</span>
-					</div>
-					<div class="ce-article-content-content">
-						<span></span>
-						<p class="ce-right">La 3ème édition de la course « Enfants sans Cancer » aura lieu le dimanche 28 septembre 2014.</p>
+					<h3>Billetterie</h3>
+					<div class="ce-fond-article">
+						<span class="ce-img-article-billetterie"></span>
 					</div>
 				</div>
 				<div class="ce-article-content">
 					<div class="ce-article-content-title">
 						<p class="ce-right">Publié le 12/09/2014</p>
-						<span>like</span>
+						<div class="ce-left"><span class="ce-img-article-content-title-like"></span>10</div>
+						<div><span class="ce-img-article-content-title-shop"></span>10</div>
 					</div>
 					<div class="ce-article-content-content">
-						<span></span>
-						<p class="ce-right">La 3ème édition de la course « Enfants sans Cancer » aura lieu le dimanche 28 septembre 2014.</p>
+						<img src="../img/picture/article/pf.png" />
+						<p>La 3ème édition de la course « Enfants sans Cancer » aura lieu le dimanche 28 septembre 2014.</p>
 					</div>
 				</div>
+				<div class="ce-article-content">
+					<div class="ce-article-content-title">
+						<p class="ce-right">Publié le 12/09/2014</p>
+						<div class="ce-left"><span class="ce-img-article-content-title-like"></span>10</div>
+						<div><span class="ce-img-article-content-title-shop"></span>10</div>
+					</div>
+					<div class="ce-article-content-content">
+						<img src="../img/picture/article/pf.png" />
+						<p>La 3ème édition de la course « Enfants sans Cancer » aura lieu le dimanche 28 septembre 2014.</p>
+					</div>
+				</div>
+			</article>
+			<article class="ce-article">
+				<div class="ce-article-title">
+					<h3>Bons plans</h3>
+					<div class="ce-fond-article">
+						<span class="ce-img-article-bonplan"></span>
+					</div>
+				</div>
+				<div class="ce-article-content">
+					<div class="ce-article-content-title">
+						<p class="ce-right">Publié le 12/09/2014</p>
+						<div><span class="ce-img-article-content-title-like"></span>10</div>
+					</div>
+					<div class="ce-article-content-content">
+						<img src="../img/picture/article/pf.png" />
+						<p>La 3ème édition de la course « Enfants sans Cancer » aura lieu le dimanche 28 septembre 2014.</p>
+					</div>
+				</div>
+				<div class="ce-article-content">
+					<div class="ce-article-content-title">
+						<p class="ce-right">Publié le 12/09/2014</p>
+						<div><span class="ce-img-article-content-title-like"></span>10</div>
+					</div>
+					<div class="ce-article-content-content">
+						<img src="../img/picture/article/pf.png" />
+						<p>La 3ème édition de la course « Enfants sans Cancer » aura lieu le dimanche 28 septembre 2014.</p>
+					</div>
+				</div>
+				<p id="back-top" style="display: block;">
+					<a href="#top"><span></span>Retour</a>
+				</p>
 			</article>
 			<footer><!-- Pied-de-page de la page -> site --></footer>
 		</div>

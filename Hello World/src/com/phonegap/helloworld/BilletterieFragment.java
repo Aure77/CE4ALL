@@ -39,31 +39,7 @@ public class BilletterieFragment extends CordovaFragmentAbstract {
 //        	 });
      //   myWebView.setWebViewClient(new WebViewClient());
 
-        myWebView.loadUrl("file:///android_asset/www/html/billeterie.html");
-        
-				
-				NotificationCompat.Builder mBuilder =
-				        new NotificationCompat.Builder(this.getActivity())
-				        .setSmallIcon(R.drawable.icon_notif)
-				        .setContentTitle("Une nouvelle actu")
-				        .setContentText("Parc Asterix!");
-
-
-				
-				int notificationId = 001;
-				Intent viewIntent = new Intent(this.getActivity(), HomeActivity.class);
-
-				PendingIntent viewPendingIntent =
-				        PendingIntent.getActivity(this.getActivity(), 0, viewIntent, 0);
-				
-				mBuilder.setContentIntent(viewPendingIntent);
-
-
-				NotificationManager mNotificationManager =
-			    (NotificationManager) getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
-			// mId allows you to update the notification later on.
-			mNotificationManager.notify(notificationId, mBuilder.build());
-
+        myWebView.loadUrl("file:///android_asset/www/html/billetterie.html");
 
         return rootView;
     }
