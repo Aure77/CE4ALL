@@ -23,12 +23,12 @@
     <!-- Nav Drawer List Item Icons -->
     <!-- Keep them in order as the titles are in -->
     <array name="nav_drawer_icons">
-        <item>@drawable/buttontrophiesover</item>
-        <item>@drawable/buttonrankingsorangeover</item>
-        <item>@drawable/buttontrophiesover</item>
-        <item>@drawable/buttonrankingsorangeover</item>
-        <item>@drawable/buttontrophiesover</item>
-        <item>@drawable/buttonrankingsorangeover</item>
+        <item>@drawable/menu_icon_accueil</item>
+        <item>@drawable/shop</item>
+        <item>@drawable/menu_icon_billet</item>
+        <item>@drawable/menu_icon_actualite</item>
+        <item>@drawable/menu_icon_lastminute</item>
+        <item>@drawable/menu_icon_bonplan</item>
     </array>
 
     <!-- Content Description -->
