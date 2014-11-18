@@ -605,6 +605,20 @@ display:block;
 	background:url(../img/picture/billetterie/foot.png) 0 0 no-repeat;
 }
 
+.ce-img-pinkfloyd {
+	background:url(../img/picture/billetterie/pinkfloyd.png) 0 0 no-repeat;
+}
+.ce-img-voiture {
+	background:url(../img/picture/billetterie/voiture.png) 0 0 no-repeat;
+}
+
+.ce-img-visio {
+	background:url(../img/picture/billetterie/visio.png) 0 0 no-repeat;
+}
+
+.ce-img-noel {
+	background:url(../img/picture/billetterie/noel.png) 0 0 no-repeat;
+}
 
 .ce-img-article-actualites {
 	width:50px;

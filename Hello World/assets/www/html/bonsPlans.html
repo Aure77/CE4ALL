@@ -46,21 +46,15 @@
 		<meta name="msapplication-TileColor" content="#000">
 		<meta http-equiv="cleartype" content="on">
 				
-		<script type="text/javascript" src="../cordova.js"></script>
-		<script type="text/javascript" src="../cordova_plugins.js"></script>
+		
 		
 		<link href="../css/style.css" rel="stylesheet" media="all" type="text/css"> 
 		<script src="../js/jquery.js"></script>
 		<script src="../js/modernizr-2.6.2.min.js"></script>
 
-		<script>
-			function addNotification() {
-				cordova.exec(function(data) { console.log(data); }, function(data) { alert(data); }, "NotificationPlugin", "notify", [1, "Bon plan", "Le nouvel iFad 18 en promo sur le CE !"]);
-			}
-			$(document).ready(function() {
-				setTimeout(addNotification, 10000);				
-			});
-		</script>
+		
+		
+
 </head>
 
 <body>
@@ -77,11 +71,6 @@
 				<div class="ce-article-boutons-bonplan">
 					<a>Ajouter un bon plan</a>
 				</div>
-				<select class="form-control">
-				  <option value="voyage">voyage</option>
-				  <option value="concert">concert</option>
-				  <option value="musee">musée</option>
-				</select>
 				<div class="ce-article-title">
 					<h3>Bons Plans</h3>
 					<div class="ce-fond-article">
@@ -90,31 +79,31 @@
 				</div>
 				<div class="ce-article-content">
 					<div class="ce-article-content-bonplan">
-						<div class="ce-img-article-type"></div>
+						<div class="ce-img-article-type ce-img-pinkfloyd"></div>
 						<div class="ce-article-info">
 							<div class="ce-right"><span class="ce-img-article-content-title-like"></span>10</div>
-							<h3>Billet Parc astérix 1 jour  1 Parc</h3>
+							<h3>Echange Billet Pink Floyd</h3>
 							<h4>Valable jusqu'au 13/05/2015</h4>
-							<p>Détonnant mélange de 35 attractions et de grands spectacles, le tout dans des décors truffés d'humour gaulois, Parc Astérix, 
-	c'est la "potion loisirs" testée et approuvée depuis 1989 par des millions de visiteurs.</p>
+							<p>Echange de billets pour le dernier concert de Pink Floyd - The Wall</p>
+							<p>Publié par - Christine lepoint</p>
 						</div>
 						<div class="ce-article-boutons">
-							<a class="ce-right disabled"><span class="ce-img-button-like"></span>Liker</a>
-							<h3>45€</h3>
+							<a class="ce-right"><span class="ce-img-button-like"></span>Liker</a>
+							<h3>245€</h3>
 						</div>
 					</div>
 					<div class="ce-article-content-bonplan">
-						<div class="ce-img-article-type"></div>
+						<div class="ce-img-article-type ce-img-voiture"></div>
 						<div class="ce-article-info">
 							<div class="ce-right"><span class="ce-img-article-content-title-like"></span>10</div>
-							<h3>Billet Parc astérix 1 jour  1 Parc</h3>
+							<h3>Vente Audi TT - Occasion</h3>
 							<h4>Valable jusqu'au 13/05/2015</h4>
-							<p>Détonnant mélange de 35 attractions et de grands spectacles, le tout dans des décors truffés d'humour gaulois, Parc Astérix, 
-	c'est la "potion loisirs" testée et approuvée depuis 1989 par des millions de visiteurs.</p>
+							<p>Vente d'une Audi TT en très bon état</p>
+							<p>Publié par - Jean Serano</p>
 						</div>
 						<div class="ce-article-boutons">
 							<a class="ce-right disabled"><span class="ce-img-button-like"></span>Liker</a>
-							<h3>45€</h3>
+							<h3>2540€</h3>
 						</div>
 					</div>
 				</div>

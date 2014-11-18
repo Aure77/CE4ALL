@@ -54,33 +54,34 @@
 		<script src="../js/jquery.js"></script>
 		<script src="../js/modernizr-2.6.2.min.js"></script>
 		
-		<script>
-			$(document).ready(function(){
-				$('a.ce-buy-ticket').on('click', function() {
-					buyTicket($(this).attr('data-ticket-id'));
-				});
-			});
-		</script>
 		<script type="text/javascript">
-    $(document).ready(function(){
-        $("select").change(function(){
-            $( "select option:selected").each(function(){
-                if($(this).attr("value")=="dernieres"){
-                    $(".box").hide();
-                    $(".red").show();
-                }
-                if($(this).attr("value")=="parcs"){
-                    $(".box").hide();
-                    $(".green").show();
-                }
-                if($(this).attr("value")=="musees"){
-                    $(".box").hide();
-                    $(".blue").show();
-                }
-            });
-        }).change();
-    });
-</script>
+		    $(document).ready(function(){
+		        $("select").change(function(){
+		            $( "select option:selected").each(function(){
+		                if($(this).attr("value")=="dernieres"){
+		                    $(".box").hide();
+		                    $(".red").show();
+		                }
+		                if($(this).attr("value")=="parcs"){
+		                    $(".box").hide();
+		                    $(".green").show();
+		                }
+		                if($(this).attr("value")=="musees"){
+		                    $(".box").hide();
+		                    $(".blue").show();
+		                }
+		            });
+		        }).change();
+		        
+		        $('a.ce-buy-ticket').on('click', function() {
+		        		var ticketId = $(this).attr('data-ticket-id');
+						var ticketTitle = $(this).parent().parent().find('h3:eq(0)').text();
+						if(confirm("Voulez-vous acheter le billet : " + ticketTitle)) {
+							buyTicket(ticketId);
+						}
+				});
+		    });
+		</script>
 </head>
 
 <body>

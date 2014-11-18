@@ -18,6 +18,7 @@ import android.util.Log;
 
 import com.phonegap.helloworld.HomeActivity;
 import com.phonegap.helloworld.R;
+import com.phonegap.helloworld.SplashScreen;
 import com.phonegap.helloworld.fake.Billet;
 import com.phonegap.helloworld.fake.BilletterieFactory;
 
@@ -69,7 +70,7 @@ public class NotificationPlugin extends CordovaPlugin {
 									.setContentText(message)
 									.setVibrate(new long[] { 200, 800, 200 });
 	
-							Intent viewIntent = new Intent(activity, HomeActivity.class);
+							Intent viewIntent = new Intent(activity, SplashScreen.class);
 	
 							PendingIntent viewPendingIntent = PendingIntent.getActivity(activity, 0, viewIntent, 0);
 	
