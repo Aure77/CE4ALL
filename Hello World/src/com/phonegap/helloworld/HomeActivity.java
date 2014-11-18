@@ -138,7 +138,8 @@ public class HomeActivity extends FragmentActivity {
 			actionBar.setCustomView(R.layout.topbar);
 			// actionBar.setTitle("hi");
 			// actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.logo));
-			actionBar.setIcon(getResources().getDrawable(R.drawable.menu));
+			actionBar.setIcon(getResources().getDrawable(R.drawable.menuicon));
+			actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.menu));
 			actionBar.setCustomView(R.layout.topbar);
 			actionBar.setDisplayShowTitleEnabled(true);
 			actionBar.setDisplayShowCustomEnabled(true);

@@ -4,9 +4,9 @@
 
 	<color name="list_item_title">#fff</color>
 	
-	<color name="list_background">#303030</color>
+	<color name="list_background">#0089b9</color>
 	
-	<color name="list_background_pressed">#992416</color>
+	<color name="list_background_pressed">#086181</color>
 	
 	<color name="list_divider">#272727</color>
 	
