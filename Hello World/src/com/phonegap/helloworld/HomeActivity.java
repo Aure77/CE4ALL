@@ -54,12 +54,12 @@ public class HomeActivity extends FragmentActivity {
         mTitle = mDrawerTitle = getTitle();
  
         initializeMenuItems();
-        initializeActionBar();
         if(DeviceDetector.isTablet(this)) {
         	setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE); // force landscape on tablet
         } else {
         	initializeSlideMenuDrawer(); // slide menu only on phones
         }
+        initializeActionBar();
  
 		if (savedInstanceState == null) {
 			// on first time display view for first nav item
