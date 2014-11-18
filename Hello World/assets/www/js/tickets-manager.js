@@ -1,8 +1,11 @@
-function buyTicket(ticketId) {
-	cordova.exec(buyTicketSuccess, buyTicketFailure, "NotificationPlugin", "buy-ticket", [ticketId]);
+function buyTicket(ticket) {
+	cordova.exec(buyTicketSuccess, buyTicketFailure, "NotificationPlugin", "buy-ticket", [ticket]);
 }
-function buyTicketSuccess(data){
-	alert(data);
+function buyTicketSuccess(data) {
+	var value = JSON.parse(localStorage.getItem("tickets")) || [];
+	value.push(data.ticket);
+	localStorage.setItem("tickets", JSON.stringify(value));
+	location.href = "mesBillets.html";
 }		
 function buyTicketFailure(data) {
 	alert("FAIL: " + data);
