@@ -169,8 +169,8 @@ public class HomeActivity extends FragmentActivity {
 				FragmentManager fragmentManager = getSupportFragmentManager();
 				FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-				Fragment fragment = new ProfileFragment();
-				highlightMenu(ProfileFragment.MENU_ID_TO_HIGHLIGHT);
+				Fragment fragment = new MesBilletsFragment();
+				highlightMenu(MesBilletsFragment.MENU_ID_TO_HIGHLIGHT);
 				fragmentManager.beginTransaction().replace(R.id.frame_container, fragment).commit();
 				fragmentTransaction.commit();
 			}

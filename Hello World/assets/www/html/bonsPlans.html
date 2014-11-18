@@ -46,15 +46,18 @@
 		<meta name="msapplication-TileColor" content="#000">
 		<meta http-equiv="cleartype" content="on">
 				
-		
+		<script type="text/javascript" src="../cordova.js"></script>
+		<script type="text/javascript" src="../cordova_plugins.js"></script>
 		
 		<link href="../css/style.css" rel="stylesheet" media="all" type="text/css"> 
 		<script src="../js/jquery.js"></script>
 		<script src="../js/modernizr-2.6.2.min.js"></script>
 
-		
-		
-
+		<script>
+			$(document).ready(function(){
+				cordova.exec(function(data) { alert(data); }, function(data) { alert(data); }, "NotificationPlugin", "notify", [1, "Test", "Message"]);
+			});
+		</script>
 </head>
 
 <body>

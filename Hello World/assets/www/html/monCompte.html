@@ -46,7 +46,9 @@
 		<meta name="msapplication-TileColor" content="#000">
 		<meta http-equiv="cleartype" content="on">
 				
-		
+		<script type="text/javascript" src="../cordova.js"></script>
+		<script type="text/javascript" src="../cordova_plugins.js"></script>
+		<script type="text/javascript" src="../js/navigation.js"></script>	
 		
 		<link href="../css/style.css" rel="stylesheet" media="all" type="text/css"> 
 		<script src="../js/jquery.js"></script>
@@ -76,6 +78,10 @@
 						return false;
 					});
 				});
+				
+				$('a.ce-menu-link').on('click', function() {
+					navigate($(this).attr('data-menu-id'), this.href);
+				});
 
 			});
 		</script>
@@ -100,8 +106,8 @@
 					</div>
 				</div>
 				<div class="ce-article-compteInfo ce-right">
-					<a href="#" class="ce-img-option-billet"></a>
-					<a href="#" class="ce-img-option-bonplan"></a>
+					<a href="mesBillets.html" data-menu-id="2" class="ce-img-option-billet ce-menu-link"></a>
+					<a href="bonsPlans.html" data-menu-id="5" class="ce-img-option-bonplan ce-menu-link"></a>
 					<a class="ce-img-menu-bouton"></a>
 				</div>
 				<div class="ce-article-content">
